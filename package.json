@@ -1,0 +1,38 @@
+{
+  "name": "scraper-x",
+  "version": "1.2.3",
+  "description": "A Simple Scraper",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c-o-d-e-xx/scraper-x.git"
+  },
+  "author": "hbdjdj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/c-o-d-e-xx/scraper-x/issues"
+  },
+  "keywords": [
+    "tiktok-scraper",
+    "simple scraper"
+  ],
+  "homepage": "https://github.com/c-o-d-e-xx/scraper-x#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.45",
+    "@types/node-fetch": "^2.6.11",
+    "tsup": "^5.12.9",
+    "typedoc": "^0.22.18",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "miniget": "^4.2.2",
+    "netscape-cookies-parser": "^1.0.2",
+    "node-fetch": "^2.6.7",
+    "puppeteer": "^22.11.2",
+    "tiktok-signature": "^1.7.3"
+  }
+}
