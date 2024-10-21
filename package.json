@@ -1,6 +1,6 @@
 {
   "name": "scraper-x",
-  "version": "1.2.3",
+  "version": "1.0.0",
   "description": "A Simple Scraper",
   "main": "src/index.js",
   "scripts": {
