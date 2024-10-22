@@ -412,6 +412,56 @@ class ClipsMetadata {
     }
 }
 
+class AdditionalAudioInfo {
+    constructor(additional_audio_username = null, audio_reattribution_info = new AudioReattributionInfo()) {
+        this.additional_audio_username = additional_audio_username;
+        this.audio_reattribution_info = audio_reattribution_info;
+    }
+}
+
+class AudioReattributionInfo {
+    constructor(should_allow_restore = false) {
+        this.should_allow_restore = should_allow_restore;
+    }
+}
+
+class AudioRankingInfo {
+    constructor(best_audio_cluster_id = '') {
+        this.best_audio_cluster_id = best_audio_cluster_id;
+    }
+}
+
+class BrandedContentTagInfo {
+    constructor(can_add_tag = false) {
+        this.can_add_tag = can_add_tag;
+    }
+}
+
+class MashupInfo {
+    constructor(
+        mashups_allowed = false, 
+        can_toggle_mashups_allowed = false, 
+        has_been_mashed_up = false,
+        formatted_mashups_count = null, 
+        original_media = null, 
+        non_privacy_filtered_mashups_media_count = null
+    ) {
+        this.mashups_allowed = mashups_allowed;
+        this.can_toggle_mashups_allowed = can_toggle_mashups_allowed;
+        this.has_been_mashed_up = has_been_mashed_up;
+        this.formatted_mashups_count = formatted_mashups_count;
+        this.original_media = original_media;
+        this.non_privacy_filtered_mashups_media_count = non_privacy_filtered_mashups_media_count;
+    }
+}
+
+class MusicInfo {
+    constructor(music_asset_info = new MusicAssetInfo(), music_consumption_info = new MusicConsumptionInfo(), push_blocking_test = null) {
+        this.music_asset_info = music_asset_info;
+        this.music_consumption_info = music_consumption_info;
+        this.push_blocking_test = push_blocking_test;
+    }
+}
 
 
 
