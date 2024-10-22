@@ -463,6 +463,445 @@ class MusicInfo {
     }
 }
 
+// Define and export the MusicAssetInfo class
+class MusicAssetInfo {
+    constructor(
+        audio_cluster_id,
+        id,
+        title,
+        subtitle,
+        display_artist,
+        artist_id,
+        cover_artwork_uri,
+        cover_artwork_thumbnail_uri,
+        progressive_download_url,
+        reactive_audio_download_url,
+        fast_start_progressive_download_url,
+        highlight_start_times_in_ms,
+        is_explicit,
+        dash_manifest,
+        has_lyrics,
+        audio_asset_id,
+        duration_in_ms,
+        dark_message,
+        allows_saving,
+        territory_validity_periods
+    ) {
+        this.audio_cluster_id = audio_cluster_id;
+        this.id = id;
+        this.title = title;
+        this.subtitle = subtitle;
+        this.display_artist = display_artist;
+        this.artist_id = artist_id;
+        this.cover_artwork_uri = cover_artwork_uri;
+        this.cover_artwork_thumbnail_uri = cover_artwork_thumbnail_uri;
+        this.progressive_download_url = progressive_download_url;
+        this.reactive_audio_download_url = reactive_audio_download_url;
+        this.fast_start_progressive_download_url = fast_start_progressive_download_url;
+        this.highlight_start_times_in_ms = highlight_start_times_in_ms;
+        this.is_explicit = is_explicit;
+        this.dash_manifest = dash_manifest;
+        this.has_lyrics = has_lyrics;
+        this.audio_asset_id = audio_asset_id;
+        this.duration_in_ms = duration_in_ms;
+        this.dark_message = dark_message;
+        this.allows_saving = allows_saving;
+        this.territory_validity_periods = territory_validity_periods;
+    }
+}
+
+// Define and export the TerritoryValidityPeriods class
+class TerritoryValidityPeriods {
+    constructor() {
+        // Implement any specific properties here if needed
+    }
+}
+
+// Define and export the CoauthorProducer class (assuming it's used in MusicConsumptionInfo)
+class CoauthorProducer {
+    constructor(name, role) {
+        this.name = name;
+        this.role = role;
+    }
+}
+
+// Define and export the MusicConsumptionInfo class
+class MusicConsumptionInfo {
+    constructor(
+        ig_artist,
+        placeholder_profile_pic_url,
+        should_mute_audio,
+        should_mute_audio_reason,
+        is_bookmarked,
+        overlap_duration_in_ms,
+        audio_asset_start_time_in_ms,
+        allow_media_creation_with_music,
+        is_trending_in_clips,
+        formatted_clips_media_count,
+        streaming_services,
+        display_labels
+    ) {
+        this.ig_artist = ig_artist;
+        this.placeholder_profile_pic_url = placeholder_profile_pic_url;
+        this.should_mute_audio = should_mute_audio;
+        this.should_mute_audio_reason = should_mute_audio_reason;
+        this.is_bookmarked = is_bookmarked;
+        this.overlap_duration_in_ms = overlap_duration_in_ms;
+        this.audio_asset_start_time_in_ms = audio_asset_start_time_in_ms;
+        this.allow_media_creation_with_music = allow_media_creation_with_music;
+        this.is_trending_in_clips = is_trending_in_clips;
+        this.formatted_clips_media_count = formatted_clips_media_count;
+        this.streaming_services = streaming_services;
+        this.display_labels = display_labels;
+    }
+}
+
+// Define and export the CoauthorProducerFriendshipStatus class
+class CoauthorProducerFriendshipStatus {
+    constructor(
+        following,
+        followed_by,
+        blocking,
+        muting,
+        is_private,
+        incoming_request,
+        outgoing_request,
+        is_bestie,
+        is_restricted,
+        is_feed_favorite
+    ) {
+        this.following = following;
+        this.followed_by = followed_by;
+        this.blocking = blocking;
+        this.muting = muting;
+        this.is_private = is_private;
+        this.incoming_request = incoming_request;
+        this.outgoing_request = outgoing_request;
+        this.is_bestie = is_bestie;
+        this.is_restricted = is_restricted;
+        this.is_feed_favorite = is_feed_favorite;
+    }
+}
+
+// Define and export the CoauthorProducer class
+class CoauthorProducer {
+    constructor(
+        pk,
+        username,
+        full_name,
+        is_private,
+        profile_pic_url,
+        profile_pic_id,
+        is_verified,
+        follow_friction_type,
+        friendship_status
+    ) {
+        this.pk = pk;
+        this.username = username;
+        this.full_name = full_name;
+        this.is_private = is_private;
+        this.profile_pic_url = profile_pic_url;
+        this.profile_pic_id = profile_pic_id || null; // Optional field
+        this.is_verified = is_verified;
+        this.follow_friction_type = follow_friction_type;
+        this.friendship_status = friendship_status instanceof CoauthorProducerFriendshipStatus
+            ? friendship_status
+            : new CoauthorProducerFriendshipStatus(); // Ensure it's an instance of the correct class
+    }
+}
+
+// OriginalSoundInfo.js
+class ConsumptionInfo {
+    constructor(is_bookmarked, should_mute_audio_reason, is_trending_in_clips) {
+        this.is_bookmarked = is_bookmarked;
+        this.should_mute_audio_reason = should_mute_audio_reason;
+        this.is_trending_in_clips = is_trending_in_clips;
+    }
+}
+
+class IgArtist {
+    constructor(pk, username, full_name, is_private, profile_pic_url, profile_pic_id, is_verified, friendship_status = null) {
+        this.pk = pk;
+        this.username = username;
+        this.full_name = full_name;
+        this.is_private = is_private;
+        this.profile_pic_url = profile_pic_url;
+        this.profile_pic_id = profile_pic_id;
+        this.is_verified = is_verified;
+        this.friendship_status = friendship_status;
+    }
+}
+
+class OriginalSoundInfo {
+    constructor(
+        audio_asset_id,
+        progressive_download_url,
+        dash_manifest,
+        ig_artist,
+        should_mute_audio,
+        original_media_id,
+        hide_remixing,
+        duration_in_ms,
+        time_created,
+        original_audio_title,
+        consumption_info,
+        allow_creator_to_rename,
+        can_remix_be_shared_to_fb,
+        formatted_clips_media_count,
+        audio_parts,
+        is_explicit,
+        original_audio_subtype,
+        is_audio_automatically_attributed
+    ) {
+        this.audio_asset_id = audio_asset_id;
+        this.progressive_download_url = progressive_download_url;
+        this.dash_manifest = dash_manifest;
+        this.ig_artist = ig_artist; // Instance of IgArtist
+        this.should_mute_audio = should_mute_audio;
+        this.original_media_id = original_media_id;
+        this.hide_remixing = hide_remixing;
+        this.duration_in_ms = duration_in_ms;
+        this.time_created = time_created;
+        this.original_audio_title = original_audio_title; // Array of strings
+        this.consumption_info = consumption_info; // Instance of ConsumptionInfo
+        this.allow_creator_to_rename = allow_creator_to_rename;
+        this.can_remix_be_shared_to_fb = can_remix_be_shared_to_fb;
+        this.formatted_clips_media_count = formatted_clips_media_count; // Can be null
+        this.audio_parts = audio_parts; // Array
+        this.is_explicit = is_explicit;
+        this.original_audio_subtype = original_audio_subtype;
+        this.is_audio_automatically_attributed = is_audio_automatically_attributed;
+    }
+}
+
+class IgArtistFriendshipStatus {
+    constructor(following, followed_by, blocking, muting, is_private, incoming_request, outgoing_request, is_bestie, is_restricted, is_feed_favorite) {
+        this.following = following;
+        this.followed_by = followed_by;
+        this.blocking = blocking;
+        this.muting = muting;
+        this.is_private = is_private;
+        this.incoming_request = incoming_request;
+        this.outgoing_request = outgoing_request;
+        this.is_bestie = is_bestie;
+        this.is_restricted = is_restricted;
+        this.is_feed_favorite = is_feed_favorite;
+    }
+}
+
+class InUser {
+    constructor(pk, username, full_name, is_private, profile_pic_url, profile_pic_id, is_verified, follow_friction_type) {
+        this.pk = pk;
+        this.username = username;
+        this.full_name = full_name;
+        this.is_private = is_private;
+        this.profile_pic_url = profile_pic_url;
+        this.profile_pic_id = profile_pic_id;
+        this.is_verified = is_verified;
+        this.follow_friction_type = follow_friction_type;
+    }
+}
+
+class In {
+    constructor(user, position, start_time_in_video_in_sec, duration_in_video_in_sec) {
+        this.user = user;
+        this.position = position;
+        this.start_time_in_video_in_sec = start_time_in_video_in_sec;
+        this.duration_in_video_in_sec = duration_in_video_in_sec;
+    }
+}
+
+class Usertags {
+    constructor(inArray) {
+        this.in = inArray; // Expecting an array of In instances
+    }
+}
+
+class VideoVersion {
+    constructor(type, width, height, url, id) {
+        this.type = type;
+        this.width = width;
+        this.height = height;
+        this.url = url;
+        this.id = id;
+    }
+}
+
+class Location {
+    constructor(pk, short_name, facebook_places_id, external_source, name, address, city, has_viewer_saved, lng, lat, is_eligible_for_guides) {
+        this.pk = pk;
+        this.short_name = short_name;
+        this.facebook_places_id = facebook_places_id;
+        this.external_source = external_source;
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.has_viewer_saved = has_viewer_saved;
+        this.lng = lng;
+        this.lat = lat;
+        this.is_eligible_for_guides = is_eligible_for_guides;
+    }
+}
+
+class ImageVersions2 {
+    constructor(candidates, additional_candidates, animated_thumbnail_spritesheet_info_candidates) {
+        this.candidates = candidates;
+        this.additional_candidates = additional_candidates;
+        this.animated_thumbnail_spritesheet_info_candidates = animated_thumbnail_spritesheet_info_candidates;
+    }
+}
+
+class AdditionalCandidates {
+    constructor(igtv_first_frame, first_frame) {
+        this.igtv_first_frame = igtv_first_frame;
+        this.first_frame = first_frame;
+    }
+}
+
+class FirstFrame {
+    constructor(width, height, url) {
+        this.width = width;
+        this.height = height;
+        this.url = url;
+    }
+}
+
+class AnimatedThumbnailSpritesheetInfoCandidates {
+    constructor() {
+        this.default = new Default(); // Instantiate Default class
+    }
+}
+
+class Default {
+    constructor(video_length, thumbnail_width, thumbnail_height, thumbnail_duration, sprite_urls, thumbnails_per_row, total_thumbnail_num_per_sprite, max_thumbnails_per_sprite, sprite_width, sprite_height, rendered_width, file_size_kb) {
+        this.video_length = video_length;
+        this.thumbnail_width = thumbnail_width;
+        this.thumbnail_height = thumbnail_height;
+        this.thumbnail_duration = thumbnail_duration;
+        this.sprite_urls = sprite_urls;
+        this.thumbnails_per_row = thumbnails_per_row;
+        this.total_thumbnail_num_per_sprite = total_thumbnail_num_per_sprite;
+        this.max_thumbnails_per_sprite = max_thumbnails_per_sprite;
+        this.sprite_width = sprite_width;
+        this.sprite_height = sprite_height;
+        this.rendered_width = rendered_width;
+        this.file_size_kb = file_size_kb;
+    }
+}
+
+class Candidate {
+    constructor(width, height, url) {
+        this.width = width;
+        this.height = height;
+        this.url = url;
+    }
+}
+
+class MusicMetadata {
+    constructor(music_canonical_id, audio_type = null, music_info = null, original_sound_info = null) {
+        this.music_canonical_id = music_canonical_id;
+        this.audio_type = audio_type;
+        this.music_info = music_info;
+        this.original_sound_info = original_sound_info;
+    }
+}
+
+class MediaCroppingInfo {
+    constructor(feed_preview_crop, square_crop) {
+        this.feed_preview_crop = feed_preview_crop;
+        this.square_crop = square_crop; // Instance of SquareCrop
+    }
+}
+
+class SquareCrop {
+    constructor(crop_bottom, crop_left, crop_right, crop_top) {
+        this.crop_bottom = crop_bottom;
+        this.crop_left = crop_left;
+        this.crop_right = crop_right;
+        this.crop_top = crop_top;
+    }
+}
+
+class CommentInformTreatment {
+    constructor(should_have_inform_treatment, text) {
+        this.should_have_inform_treatment = should_have_inform_treatment;
+        this.text = text;
+    }
+}
+
+class Comment {
+    constructor(pk, userId, text, type, createdAt, createdAtUtc, contentType, status, bitFlags, didReportAsSpam, shareEnabled, user, isCovered, mediaId, hasLikedComment, commentLikeCount, privateReplyStatus, parentCommentId = null) {
+        this.pk = pk;
+        this.user_id = userId;
+        this.text = text;
+        this.type = type;
+        this.created_at = createdAt;
+        this.created_at_utc = createdAtUtc;
+        this.content_type = contentType;
+        this.status = status;
+        this.bit_flags = bitFlags;
+        this.did_report_as_spam = didReportAsSpam;
+        this.share_enabled = shareEnabled;
+        this.user = user; // Instance of CommentUser
+        this.is_covered = isCovered;
+        this.media_id = mediaId;
+        this.has_liked_comment = hasLikedComment;
+        this.comment_like_count = commentLikeCount;
+        this.private_reply_status = privateReplyStatus;
+        this.parent_comment_id = parentCommentId;
+    }
+}
+
+class CommentUser {
+    constructor(pk, username, fullName, isPrivate, profilePicUrl, profilePicId, isVerified, followFrictionType) {
+        this.pk = pk;
+        this.username = username;
+        this.full_name = fullName;
+        this.is_private = isPrivate;
+        this.profile_pic_url = profilePicUrl;
+        this.profile_pic_id = profilePicId;
+        this.is_verified = isVerified;
+        this.follow_friction_type = followFrictionType;
+    }
+}
+
+class ItemUser {
+    constructor(pk, username, fullName, isPrivate, profilePicUrl, profilePicId, friendshipStatus, isVerified, followFrictionType, hasAnonymousProfilePicture, isUnpublished, isFavorite, latestReelMedia, hasHighlightReels, liveBroadcastId = null, liveBroadcastVisibility = null) {
+        this.pk = pk;
+        this.username = username;
+        this.fullName = fullName;
+        this.isPrivate = isPrivate;
+        this.profilePicUrl = profilePicUrl;
+        this.profilePicId = profilePicId;
+        this.friendshipStatus = friendshipStatus;
+        this.isVerified = isVerified;
+        this.followFrictionType = followFrictionType;
+        this.hasAnonymousProfilePicture = hasAnonymousProfilePicture;
+        this.isUnpublished = isUnpublished;
+        this.isFavorite = isFavorite;
+        this.latestReelMedia = latestReelMedia;
+        this.hasHighlightReels = hasHighlightReels;
+        this.liveBroadcastId = liveBroadcastId;
+        this.liveBroadcastVisibility = liveBroadcastVisibility;
+    }
+}
+
+class FriendshipStatus {
+    constructor(following, outgoingRequest, isBestie, isRestricted, isFeedFavorite) {
+        this.following = following;
+        this.outgoingRequest = outgoingRequest;
+        this.isBestie = isBestie;
+        this.isRestricted = isRestricted;
+        this.isFeedFavorite = isFeedFavorite;
+    }
+}
+
+
+
+
+
+
+
 
 
 
