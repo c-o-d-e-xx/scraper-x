@@ -237,6 +237,183 @@ class Caption {
     }
 }
 
+class User {
+    constructor(
+        pk,
+        username,
+        fullName,
+        isPrivate,
+        profilePicUrl,
+        profilePicId,
+        friendshipStatus,
+        isVerified,
+        followFrictionType,
+        hasAnonymousProfilePicture,
+        isUnpublished,
+        isFavorite,
+        latestReelMedia,
+        hasHighlightReels,
+        liveBroadcastId,
+        liveBroadcastVisibility,
+        canBoostPost,
+        canSeeOrganicInsights,
+        showInsightsTerms,
+        reelAutoArchive,
+        allowedCommenterType,
+        interopMessagingUserFbid,
+        fbidV2,
+        accountBadges
+    ) {
+        this.pk = pk;
+        this.username = username;
+        this.full_name = fullName;
+        this.is_private = isPrivate;
+        this.profile_pic_url = profilePicUrl;
+        this.profile_pic_id = profilePicId;
+        this.friendship_status = friendshipStatus || false; // Optional property
+        this.is_verified = isVerified;
+        this.follow_friction_type = followFrictionType;
+        this.has_anonymous_profile_picture = hasAnonymousProfilePicture;
+        this.is_unpublished = isUnpublished;
+        this.is_favorite = isFavorite;
+        this.latest_reel_media = latestReelMedia;
+        this.has_highlight_reels = hasHighlightReels;
+        this.live_broadcast_id = liveBroadcastId || null; // Optional property
+        this.live_broadcast_visibility = liveBroadcastVisibility || null; // Optional property
+        this.can_boost_post = canBoostPost;
+        this.can_see_organic_insights = canSeeOrganicInsights;
+        this.show_insights_terms = showInsightsTerms;
+        this.reel_auto_archive = reelAutoArchive;
+        this.allowed_commenter_type = allowedCommenterType;
+        this.interop_messaging_user_fbid = interopMessagingUserFbid;
+        this.fbid_v2 = fbidV2;
+        this.account_badges = accountBadges || []; // Default to an empty array
+    }
+}
+
+class FriendshipStatus {
+    constructor(
+        following,
+        outgoingRequest,
+        isBestie,
+        isRestricted,
+        isFeedFavorite,
+        followedBy,
+        blocking,
+        muting,
+        isPrivate,
+        incomingRequest
+    ) {
+        this.following = following;
+        this.outgoing_request = outgoingRequest;
+        this.is_bestie = isBestie;
+        this.is_restricted = isRestricted;
+        this.is_feed_favorite = isFeedFavorite;
+        this.followed_by = followedBy;
+        this.blocking = blocking;
+        this.muting = muting;
+        this.is_private = isPrivate;
+        this.incoming_request = incomingRequest;
+    }
+}
+
+class CarouselMedia {
+    constructor(
+        id,
+        mediaType,
+        imageVersions2,
+        originalWidth,
+        originalHeight,
+        pk,
+        carouselParentId,
+        canSeeInsightsAsBrand,
+        usertags,
+        commercialityStatus,
+        sharingFrictionInfo,
+        commentInformTreatment,
+        videoVersions,
+        videoDuration,
+        isDashEligible,
+        videoDashManifest,
+        videoCodec,
+        numberOfQualities
+    ) {
+        this.id = id;
+        this.media_type = mediaType;
+        this.image_versions2 = imageVersions2; // Instance of ImageVersions2 class
+        this.original_width = originalWidth;
+        this.original_height = originalHeight;
+        this.pk = pk;
+        this.carousel_parent_id = carouselParentId;
+        this.can_see_insights_as_brand = canSeeInsightsAsBrand;
+        this.usertags = usertags || undefined; // Optional Usertags instance
+        this.commerciality_status = commercialityStatus;
+        this.sharing_friction_info = sharingFrictionInfo; // Instance of SharingFrictionInfo class
+        this.comment_inform_treatment = commentInformTreatment; // Instance of CommentInformTreatment class
+        this.video_versions = videoVersions || undefined; // Optional array of VideoVersion instances
+        this.video_duration = videoDuration || undefined; // Optional property
+        this.is_dash_eligible = isDashEligible || undefined; // Optional property
+        this.video_dash_manifest = videoDashManifest || undefined; // Optional property
+        this.video_codec = videoCodec || undefined; // Optional property
+        this.number_of_qualities = numberOfQualities || undefined; // Optional property
+    }
+}
+
+class CommentInformTreatment {
+    constructor(should_have_inform_treatment, text) {
+        this.should_have_inform_treatment = should_have_inform_treatment;
+        this.text = text;
+    }
+}
+
+class ClipsMetadata {
+    constructor({
+        music_info,
+        original_sound_info,
+        audio_type,
+        music_canonical_id,
+        featured_label = null,
+        mashup_info,
+        nux_info = null,
+        viewer_interaction_settings = null,
+        branded_content_tag_info,
+        shopping_info = null,
+        additional_audio_info,
+        is_shared_to_fb,
+        breaking_content_info = null,
+        challenge_info = null,
+        reels_on_the_rise_info = null,
+        breaking_creator_info = null,
+        asset_recommendation_info = null,
+        contextual_highlight_info = null,
+        clips_creation_entry_point,
+        audio_ranking_info
+    }) {
+        this.music_info = music_info;
+        this.original_sound_info = original_sound_info;
+        this.audio_type = audio_type;
+        this.music_canonical_id = music_canonical_id;
+        this.featured_label = featured_label;
+        this.mashup_info = mashup_info;
+        this.nux_info = nux_info;
+        this.viewer_interaction_settings = viewer_interaction_settings;
+        this.branded_content_tag_info = branded_content_tag_info;
+        this.shopping_info = shopping_info;
+        this.additional_audio_info = additional_audio_info;
+        this.is_shared_to_fb = is_shared_to_fb;
+        this.breaking_content_info = breaking_content_info;
+        this.challenge_info = challenge_info;
+        this.reels_on_the_rise_info = reels_on_the_rise_info;
+        this.breaking_creator_info = breaking_creator_info;
+        this.asset_recommendation_info = asset_recommendation_info;
+        this.contextual_highlight_info = contextual_highlight_info;
+        this.clips_creation_entry_point = clips_creation_entry_point;
+        this.audio_ranking_info = audio_ranking_info;
+    }
+}
+
+
+
 
 
 
