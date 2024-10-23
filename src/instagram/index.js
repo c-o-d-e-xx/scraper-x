@@ -584,6 +584,8 @@ async function changeProfilePicture(photo) {
 }
 
 }
+
+module.exports = { igApi };
   
 
 
