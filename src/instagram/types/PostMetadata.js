@@ -27,107 +27,104 @@ class IGPostMetadata {
 }
 
 class links {
-    constructor(type, url, dimensions) {
-        this.type = type; // type of the media (e.g., image, video)
-        this.url = url; // url of downloadable media
-        this.dimensions = dimensions; // instance of Dimensions
-    }
+  /**
+   * @param {string} type - The type of media.
+   * @param {string} url - The URL of downloadable media.
+   * @param {number} width - The width of the media.
+   * @param {number} height - The height of the media.
+   */
+  constructor(type, url, width, height) {
+    this.type = type;
+    this.url = url;
+    // Instantiate Dimensions within the Links class
+    this.dimensions = new Dimensions(width, height);
+  }
 }
 
+
 class PostGraphQL {
-    constructor(data = {}, extensions = {}, status = '') {
-        this.data = data; // Optional, instance of PostData
-        this.extensions = extensions; // Optional, instance of Extensions
-        this.status = status; // Optional, status string
-    }
+  /**
+   * @param {Object} data - The parameters to initialize PostData.
+   * @param {Object} extensions - The parameters to initialize Extensions.
+   * @param {string} [status] - The status of the GraphQL post.
+   */
+  constructor(data = {}, extensions = {}, status = '') {
+    // Instantiate PostData and Extensions internally
+    this.data = new PostData(data);
+    this.extensions = new Extensions(extensions);
+    this.status = status;
+  }
 }
 
 class PostData {
-    constructor(shortcode_media = null) {
-        this.shortcode_media = shortcode_media; // Optional, instance of ShortcodeMedia
-    }
+  /**
+   * @param {Object} shortcode_media - The parameters to initialize ShortcodeMedia.
+   */
+  constructor(shortcode_media = {}) {
+    // Instantiate ShortcodeMedia internally
+    this.shortcode_media = new ShortcodeMedia(shortcode_media);
+  }
 }
 
+
 class ShortcodeMedia {
-    /**
-     * @param {Object} params - Parameters for ShortcodeMedia.
-     * @param {string} params.__typename - Type name.
-     * @param {string} params.id - Media ID.
-     * @param {string} params.shortcode - Media shortcode.
-     * @param {Dimensions} params.dimensions - Media dimensions.
-     * @param {SharingFrictionInfo} params.sharing_friction_info - Sharing friction information.
-     * @param {string} params.video_url - URL of the video.
-     * @param {string} params.display_url - Display URL of the media.
-     * @param {DisplayResource[]} params.display_resources - Array of display resources.
-     * @param {boolean} params.is_video - Indicates if the media is a video.
-     * @param {string} params.tracking_token - Tracking token.
-     * @param {boolean} params.can_see_insights_as_brand - Can see insights as brand.
-     * @param {boolean} params.caption_is_edited - Indicates if the caption is edited.
-     * @param {boolean} params.has_ranked_comments - Indicates if there are ranked comments.
-     * @param {boolean} params.like_and_view_counts_disabled - Indicates if like and view counts are disabled.
-     * @param {boolean} params.comments_disabled - Indicates if comments are disabled.
-     * @param {number} params.taken_at_timestamp - Timestamp when the media was taken.
-     * @param {boolean} params.is_affiliate - Indicates if it is an affiliate.
-     * @param {boolean} params.is_paid_partnership - Indicates if it is a paid partnership.
-     * @param {string} params.product_type - Type of the product.
-     * @param {string} params.title - Title of the media.
-     * @param {number} params.video_duration - Duration of the video.
-     * @param {string} params.thumbnail_src - Source URL for the thumbnail.
-     */
-    constructor(params) {
-        this.__typename = params.__typename;
-        this.id = params.id;
-        this.shortcode = params.shortcode;
-        this.dimensions = params.dimensions;
-        this.gating_info = null; // As per original interface
-        this.fact_check_overall_rating = null; // As per original interface
-        this.fact_check_information = null; // As per original interface
-        this.sensitivity_friction_info = null; // As per original interface
-        this.sharing_friction_info = params.sharing_friction_info;
-        this.media_overlay_info = null; // As per original interface
-        this.media_preview = null; // As per original interface
-        this.video_url = params.video_url;
-        this.display_url = params.display_url;
-        this.display_resources = params.display_resources;
-        this.is_video = params.is_video;
-        this.tracking_token = params.tracking_token;
-        this.upcoming_event = null; // As per original interface
-        this.edge_media_to_tagged_user = params.edge_media_to_tagged_user; // Should be defined in another class
-        this.edge_media_to_caption = params.edge_media_to_caption; // Should be defined in another class
-        this.can_see_insights_as_brand = params.can_see_insights_as_brand;
-        this.caption_is_edited = params.caption_is_edited;
-        this.has_ranked_comments = params.has_ranked_comments;
-        this.like_and_view_counts_disabled = params.like_and_view_counts_disabled;
-        this.edge_media_to_parent_comment = params.edge_media_to_parent_comment; // Should be defined in another class
-        this.edge_media_to_hoisted_comment = params.edge_media_to_hoisted_comment; // Should be defined in another class
-        this.edge_media_preview_comment = params.edge_media_preview_comment; // Should be defined in another class
-        this.comments_disabled = params.comments_disabled;
-        this.commenting_disabled_for_viewer = params.commenting_disabled_for_viewer;
-        this.taken_at_timestamp = params.taken_at_timestamp;
-        this.edge_media_preview_like = params.edge_media_preview_like; // Should be defined in another class
-        this.edge_media_to_sponsor_user = params.edge_media_to_sponsor_user; // Should be defined in another class
-        this.is_affiliate = params.is_affiliate;
-        this.is_paid_partnership = params.is_paid_partnership;
-        this.location = null; // As per original interface
-        this.owner = params.owner; // Should be defined in another class
-        this.is_ad = params.is_ad;
-        this.edge_web_media_to_related_media = params.edge_web_media_to_related_media; // Should be defined in another class
-        this.coauthor_producers = params.coauthor_producers;
-        this.edge_sidecar_to_children = params.edge_sidecar_to_children; // Should be defined in another class
-        this.edge_related_profiles = params.edge_related_profiles; // Should be defined in another class
-        this.accessibility_caption = null; // As per original interface
-        this.dash_info = params.dash_info; // Should be defined in another class
-        this.has_audio = params.has_audio;
-        this.video_view_count = params.video_view_count;
-        this.video_play_count = params.video_play_count; // Should be defined
-        this.encoding_status = params.encoding_status; // Should be defined
-        this.is_published = params.is_published;
-        this.product_type = params.product_type;
-        this.title = params.title;
-        this.video_duration = params.video_duration;
-        this.thumbnail_src = params.thumbnail_src;
-        this.clips_music_attribution_info = null; // As per original interface
-    }
+  /**
+   * @param {Object} params - The parameters to initialize ShortcodeMedia.
+   */
+  constructor(params) {
+    this.__typename = params.__typename || '';
+    this.id = params.id || '';
+    this.shortcode = params.shortcode || '';
+    this.dimensions = new Dimensions(params.dimensions.width, params.dimensions.height);
+    this.gating_info = params.gating_info || null;
+    this.fact_check_overall_rating = params.fact_check_overall_rating || null;
+    this.fact_check_information = params.fact_check_information || null;
+    this.sensitivity_friction_info = params.sensitivity_friction_info || null;
+    this.sharing_friction_info = new SharingFrictionInfo(); // Instantiate as needed
+    this.media_overlay_info = params.media_overlay_info || null;
+    this.media_preview = params.media_preview || null;
+    this.video_url = params.video_url || '';
+    this.display_url = params.display_url || '';
+    this.display_resources = (params.display_resources || []).map(res => new DisplayResource(res.src, res.config_height, res.config_width));
+    this.is_video = params.is_video || false;
+    this.tracking_token = params.tracking_token || '';
+    this.upcoming_event = params.upcoming_event || null;
+    this.edge_media_to_tagged_user = new EdgeMediaToTaggedUser(); // Instantiate as needed
+    this.edge_media_to_caption = new EdgeMediaToCaptionClass(); // Instantiate as needed
+    this.can_see_insights_as_brand = params.can_see_insights_as_brand || false;
+    this.caption_is_edited = params.caption_is_edited || false;
+    this.has_ranked_comments = params.has_ranked_comments || false;
+    this.like_and_view_counts_disabled = params.like_and_view_counts_disabled || false;
+    this.edge_media_to_parent_comment = new EdgeMediaToParentCommentClass(); // Instantiate as needed
+    this.edge_media_to_hoisted_comment = new EdgeMediaToCaptionClass(); // Instantiate as needed
+    this.edge_media_preview_comment = new EdgeMediaPreview(); // Instantiate as needed
+    this.comments_disabled = params.comments_disabled || false;
+    this.commenting_disabled_for_viewer = params.commenting_disabled_for_viewer || false;
+    this.taken_at_timestamp = params.taken_at_timestamp || Date.now();
+    this.edge_media_preview_like = new EdgeMediaPreview(); // Instantiate as needed
+    this.edge_media_to_sponsor_user = new EdgeMediaToCaptionClass(); // Instantiate as needed
+    this.is_affiliate = params.is_affiliate || false;
+    this.is_paid_partnership = params.is_paid_partnership || false;
+    this.location = params.location || null;
+    this.owner = new ShortcodeMediaOwner(); // Instantiate as needed
+    this.is_ad = params.is_ad || false;
+    this.edge_web_media_to_related_media = new EdgeMediaToCaptionClass(); // Instantiate as needed
+    this.coauthor_producers = params.coauthor_producers || [];
+    this.edge_sidecar_to_children = new EdgeSidecarToChildren(); // Instantiate as needed
+    this.edge_related_profiles = new EdgeMediaToCaptionClass(); // Instantiate as needed
+    this.accessibility_caption = params.accessibility_caption || null;
+    this.dash_info = new DashInfo(); // Instantiate as needed
+    this.has_audio = params.has_audio || false;
+    this.video_view_count = params.video_view_count || 0;
+    this.video_play_count = params.video_play_count || null;
+    this.encoding_status = params.encoding_status || null;
+    this.is_published = params.is_published || false;
+    this.product_type = params.product_type || '';
+    this.title = params.title || '';
+    this.video_duration = params.video_duration || 0;
+    this.thumbnail_src = params.thumbnail_src || '';
+    this.clips_music_attribution_info = params.clips_music_attribution_info || null;
+  }
 }
 
 class ViewerInfo {
@@ -176,10 +173,10 @@ class Dimensions {
 
 // displayResource.js
 class DisplayResource {
-    constructor(src, configWidth, configHeight) {
+    constructor(src, config_width, config_height) {
         this.src = src;
-        this.config_width = configWidth;
-        this.config_height = configHeight;
+        this.config_width = config_width;
+        this.config_height = config_height;
     }
 }
 
