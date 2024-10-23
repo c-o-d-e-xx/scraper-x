@@ -20,10 +20,6 @@
     "simple scraper"
   ],
   "homepage": "https://github.com/c-o-d-e-xx/scraper-x#readme",
-  "devDependencies": {
-    "@types/node": "^17.0.45",
-    "@types/node-fetch": "^2.6.11"
-  },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "miniget": "^4.2.2",
