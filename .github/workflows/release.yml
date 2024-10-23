@@ -16,14 +16,12 @@ jobs:
       - uses: actions/setup-node@v4
         with: 
           node-version: "lts/*"
-          
+      
       - run: npm ci
       
       - run: npm audit signatures
-      
-      - name: Release
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
-        
+
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
