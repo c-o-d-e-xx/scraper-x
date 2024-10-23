@@ -510,3 +510,38 @@ class Extensions {
         this.is_final = is_final;
     }
 }
+
+module.exports = {
+    IGPostMetadata,
+    links,
+    PostGraphQL,
+    PostData,
+    ShortcodeMedia,
+    ViewerInfo,
+    DashInfo,
+    Dimensions,
+    DisplayResource,
+    EdgeMediaPreview,
+    EdgeMediaToParentCommentClass,
+    PurpleNode,
+    EdgeMediaPreviewCommentEdge,
+    PageInfo,
+    EdgeFollowedByClass,
+    NodeOwner,
+    EdgeMediaToCaptionClass,
+    EdgeMediaToCaptionEdge,
+    FluffyNode,
+    EdgeMediaToTaggedUser,
+    EdgeMediaToTaggedUserEdge,
+    TentacledNode,
+    UserNode,
+    EdgeSidecarToChildren,
+    EdgeSidecarToChildrenEdge,
+    StickyNode,
+    SharingFrictionInfo,
+    ShortcodeMediaOwner,
+    ClipsMusicAttributionInfo,
+    Extensions
+};
+    
+    
