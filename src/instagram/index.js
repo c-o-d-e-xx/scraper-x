@@ -1,7 +1,3 @@
-/* Muhamad Ristiyanto _ https://github.com/Gimenz
- * Created, Published at Selasa, 9 Maret 2021
- * Modified, Updated at Minggu, 20 Februari 2022
- */
 
 const fs = require('fs');
 const FormData = require('form-data');
