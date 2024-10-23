@@ -897,7 +897,54 @@ class FriendshipStatus {
 }
 
 
-
+module.exports = {
+    IPostModel,
+    MediaUrls,
+    IRawBody,
+    Item,
+    Caption,
+    User,
+    FriendshipStatus,
+    CarouselMedia,
+    CommentInformTreatment,
+    ClipsMetadata,
+    AdditionalAudioInfo,
+    AudioReattributionInfo,
+    AudioRankingInfo,
+    BrandedContentTagInfo,
+    MashupInfo,
+    MusicInfo,
+    MusicAssetInfo,
+    TerritoryValidityPeriods,
+    MusicConsumptionInfo,
+    CoauthorProducer,
+    CoauthorProducerFriendshipStatus,
+    OriginalSoundInfo,
+    ConsumptionInfo,
+    IgArtist,
+    IgArtistFriendshipStatus,
+    Usertags,
+    In,
+    InUser,
+    VideoVersion,
+    Location,
+    ImageVersions2,
+    AdditionalCandidates,
+    FirstFrame,
+    AnimatedThumbnailSpritesheetInfoCandidates,
+    Default,
+    Candidate,
+    MusicMetadata,
+    MediaCroppingInfo,
+    SquareCrop,
+    CommentInformTreatment,
+    Comment,
+    CommentUser,
+    ItemUser,
+    FriendshipStatus
+};
+    
+    
 
 
 
