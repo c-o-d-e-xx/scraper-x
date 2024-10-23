@@ -54,5 +54,4 @@ class StoriesGraphQL {
     }
 }
 
-module.exports = { IGStoriesMetadata, ItemStories, StoriesGraphQ
-  L };
+module.exports = { IGStoriesMetadata, ItemStories, StoriesGraphQL };
