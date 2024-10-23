@@ -1,27 +1,22 @@
-name: Release
-on: 
-  push: 
-    branches: 
-      - master
-jobs: 
-  release: 
+name: Publish Package to npmjs
+on:
+  release:
+    types: [published]
+jobs:
+  build:
     runs-on: ubuntu-latest
-    permissions: 
-      contents: write
-      issues: write
-      pull-requests: write
-    steps: 
+    permissions:
+      contents: read
+      id-token: write
+    steps:
       - uses: actions/checkout@v4
-      
+      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
-        with: 
-          node-version: "lts/*"
-      
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      
-      - run: npm audit signatures
-
-      - name: Publish to npm
-        run: npm publish
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
