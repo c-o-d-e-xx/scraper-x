@@ -1,4 +1,4 @@
-// models/IPostModel.js
+const { Dimensions, postType, SharingFrictionInfo } = require('.');
 
 class IPostModel {
     constructor({
