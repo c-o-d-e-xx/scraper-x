@@ -57,5 +57,4 @@ class CookieHandler {
   }
 }
 
-module.exports = CookieH
-  andler;
+module.exports = CookieHandler;
