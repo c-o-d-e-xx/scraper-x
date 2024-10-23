@@ -1,32 +1,29 @@
 name: Release
-on:
-  push:
-    branches:
+on: 
+  push: 
+    branches: 
       - master
-
-jobs:
-  release:
+jobs: 
+  release: 
     runs-on: ubuntu-latest
-    permissions:
+    permissions: 
       contents: write
       issues: write
       pull-requests: write
-
-    steps:
+    steps: 
       - uses: actions/checkout@v4
       
       - uses: actions/setup-node@v4
-        with:
+        with: 
           node-version: "lts/*"
-      
+          
       - run: npm ci
-      
-      - run: npm run build
       
       - run: npm audit signatures
       
       - name: Release
-        env:
+        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
+        
