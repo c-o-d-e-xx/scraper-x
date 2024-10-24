@@ -359,13 +359,6 @@ class CarouselMedia {
     }
 }
 
-class CommentInformTreatment {
-    constructor(should_have_inform_treatment, text) {
-        this.should_have_inform_treatment = should_have_inform_treatment;
-        this.text = text;
-    }
-}
-
 class ClipsMetadata {
     constructor({
         music_info,
@@ -879,17 +872,6 @@ class ItemUser {
     }
 }
 
-class FriendshipStatus {
-    constructor(following, outgoingRequest, isBestie, isRestricted, isFeedFavorite) {
-        this.following = following;
-        this.outgoingRequest = outgoingRequest;
-        this.isBestie = isBestie;
-        this.isRestricted = isRestricted;
-        this.isFeedFavorite = isFeedFavorite;
-    }
-}
-
-
 module.exports = {
     IPostModel,
     MediaUrls,
@@ -899,7 +881,6 @@ module.exports = {
     User,
     FriendshipStatus,
     CarouselMedia,
-    CommentInformTreatment,
     ClipsMetadata,
     AdditionalAudioInfo,
     AudioReattributionInfo,
@@ -933,8 +914,7 @@ module.exports = {
     CommentInformTreatment,
     Comment,
     CommentUser,
-    ItemUser,
-    FriendshipStatus
+    ItemUser
 };
     
     
