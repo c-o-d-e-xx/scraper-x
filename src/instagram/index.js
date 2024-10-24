@@ -29,11 +29,6 @@ const { MediaConfigureOptions } = require('./types/MediaConfigureOptions');
 const { UserGraphQlV2, Graphql } = require('./types/UserGraphQlV2');
 const { IPaginatedPosts } = require('./types/PaginatedPosts');
 const { config } = require('./config');
-module.exports = {
-    ...require('./utils'),
-    InstagramMetadata: require('./types'),
-    ...require('./helper/Session')
-};
 
 
 class igApi {
