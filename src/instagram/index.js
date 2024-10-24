@@ -306,7 +306,7 @@ async _getReelsIds(username) {
 	 * @returns 
 	 */
 
-async function _getReels(ids) {
+async _getReels(ids) {
     const res = await FetchIGAPI(
         config.instagram_base_url,
         '/graphql/query/',
@@ -323,7 +323,7 @@ async function _getReels(ids) {
 	 * @returns
 	 */
 
-async function fetchHighlights(username) {
+async fetchHighlights(username) {
     try {
         const ids = await _getReelsIds(username);
         const reels = await Promise.all(ids.map(async (x) => {
@@ -359,7 +359,7 @@ async function fetchHighlights(username) {
 	 * @returns
 	 */
 
-async function fetchHighlights(username) {
+async fetchHighlights(username) {
     try {
         const ids = await this._getReelsIds(username);
         const reels = await Promise.all(ids.map(async (x) => this.formatHighlight(await this._getReels(x.highlight_id))));
@@ -395,7 +395,7 @@ async function fetchHighlights(username) {
 	 * @returns 
 	 */
    
-async function fetchUserPosts(username, end_cursor = '') {
+async fetchUserPosts(username, end_cursor = '') {
     try {
         const userId = await this.getIdByUsername(username);
         const params = {
@@ -419,7 +419,7 @@ async function fetchUserPosts(username, end_cursor = '') {
 	 * @returns 
 	 */
 
-async function fetchUserPostsV2(username, end_cursor = '') {
+async fetchUserPostsV2(username, end_cursor = '') {
     try {
         const userId = await this.getIdByUsername(username);
         const params = {
@@ -438,7 +438,7 @@ async function fetchUserPostsV2(username, end_cursor = '') {
     }
 }
 
-async function uploadPhoto(photo) {
+async uploadPhoto(photo) {
     try {
         const uploadId = Date.now();
         const file = Buffer.isBuffer(photo)
@@ -493,7 +493,7 @@ async function uploadPhoto(photo) {
 }
 
 // Helper function to generate a random integer
-function randInt(min, max) {
+randInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -560,7 +560,7 @@ async addPost(photo, type = 'feed', options) {
 	 * @param photo input must be filepath or buffer
 	 */
 
-async function changeProfilePicture(photo) {
+async changeProfilePicture(photo) {
     const media = Buffer.isBuffer(photo) ? bufferToStream(photo) : fs.createReadStream(photo);
     const form = new FormData();
     form.append('profile_pic', media, 'profilepic.jpg');
