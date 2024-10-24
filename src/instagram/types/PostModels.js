@@ -517,13 +517,6 @@ class TerritoryValidityPeriods {
     }
 }
 
-// Define and export the CoauthorProducer class (assuming it's used in MusicConsumptionInfo)
-class CoauthorProducer {
-    constructor(name, role) {
-        this.name = name;
-        this.role = role;
-    }
-}
 
 // Define and export the MusicConsumptionInfo class
 class MusicConsumptionInfo {
