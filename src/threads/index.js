@@ -149,6 +149,22 @@ class ThreadsAPI {
     }
   }
 
+  async publishMediaContainer({ userId, creationId }) {
+    const url = `${this.baseUrl}${userId}/threads_publish`;
+    const params = new URLSearchParams({
+      creation_id: creationId,
+    });
+
+    try {
+      const response = await this.makeRequest({ url, method: "POST", params });
+      return response.id;
+    } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
+  
+
   // Other methods...
 
   async makeRequest({ url, method, params }) {
