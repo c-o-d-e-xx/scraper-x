@@ -317,41 +317,6 @@ async _getReels(ids) {
     const graphql = res?.data;
     return graphql;
 }
-	/**
-	 * fetches highlight metadata
-	 * @param {string} username username target to fetch the highlights, also work with private profile if you use cookie \w your account that follows target account
-	 * @returns
-	 */
-
-async fetchHighlights(username) {
-    try {
-        const ids = await _getReelsIds(username);
-        const reels = await Promise.all(ids.map(async (x) => {
-            return this.formatHighlight(await _getReels(x.highlight_id));
-        }));
-
-        let data = [];
-        for (let i = 0; i < reels.length; i++) {
-            data.push({
-                title: ids[i].title,
-                cover: ids[i].cover,
-                media_count: reels[i].length,
-                highlights_id: ids[i].highlight_id,
-                highlights: reels[i]
-            });
-        }
-
-        let json = {
-            username,
-            highlights_count: ids.length,
-            data: data
-        };
-        
-        return json;
-    } catch (error) {
-        throw error;
-    }
-}
 
 /**
 	 * fetches highlight metadata
