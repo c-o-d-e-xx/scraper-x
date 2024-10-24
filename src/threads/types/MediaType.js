@@ -4,3 +4,5 @@ const MediaType = {
   VIDEO: "VIDEO",
   CAROUSEL: "CAROUSEL",
 };
+
+module.exports = { MediaType };
