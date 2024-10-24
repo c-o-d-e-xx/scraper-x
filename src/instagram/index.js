@@ -492,8 +492,6 @@ async function uploadPhoto(photo) {
     }
 }
 
-module.exports = { uploadPhoto };
-
 // Helper function to generate a random integer
 function randInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
