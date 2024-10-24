@@ -28,7 +28,7 @@ const { PostStoryResult } = require('./types/PostStoryResult');
 const { MediaConfigureOptions } = require('./types/MediaConfigureOptions');
 const { UserGraphQlV2, Graphql } = require('./types/UserGraphQlV2');
 const { IPaginatedPosts } = require('./types/PaginatedPosts');
-const { config } = require('./config');
+const { config } = require('./config/');
 
 
 class igApi {
