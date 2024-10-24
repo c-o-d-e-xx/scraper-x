@@ -12,5 +12,4 @@ class TimeSeriesValue {
   }
 }
 
-module.exports = { TimeSeriesValue }
-;
+module.exports = { TimeSeriesValue };
