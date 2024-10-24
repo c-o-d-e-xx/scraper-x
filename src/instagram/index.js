@@ -277,7 +277,7 @@ class igApi {
 	 * @returns 
 	 */
 
-async function _getReelsIds(username) {
+async _getReelsIds(username) {
     const userID = await getIdByUsername(username);
     const res = await FetchIGAPI(
         config.instagram_base_url,
