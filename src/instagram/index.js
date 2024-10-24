@@ -22,7 +22,6 @@ const { highlight_ids_query, highlight_media_query, post_shortcode_query } = req
 const { HightlighGraphQL, ReelsIds } = require('./types/HighlightMetadata');
 const { HMedia, IHighlightsMetadata, IReelsMetadata, ReelsMediaData } = require('./types/HighlightMediaMetadata');
 const { IPostModels, IRawBody, MediaUrls } = require('./types/PostModels');
-const { config } = require('./config');
 const { getCsrfToken } = require('./helper/Session');
 const { PostFeedResult } = require('./types/PostFeedResult');
 const { PostStoryResult } = require('./types/PostStoryResult');
