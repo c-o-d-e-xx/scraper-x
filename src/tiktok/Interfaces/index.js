@@ -6,9 +6,9 @@ scraper-x - Ziyan
 
 // Exporting the interfaces from their respective files
 module.exports = {
-    IVideo: require('./IVideo'),
-    IAuthor: require('./IAuthor'),
-    IMusic: require('./IMusic'),
-    ITikTokResult: require('./ITikTokResult'),
-    IUser: require('./IUser')
+    IVideo: require("./IVideo"),
+    IAuthor: require("./IAuthor"),
+    IMusic: require("./IMusic"),
+    ITikTokResult: require("./TikTokResult"),
+    IUser: require("./IUser")
 };

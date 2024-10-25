@@ -6,7 +6,7 @@ scraper-x - Ziyan
 
 
 // Import the HighlightOwner class or interface from the respective file
-const { HighlightOwner } = require('./HighlightMediaMetadata');
+const { HighlightOwner } = require("./HighlightMediaMetadata");
 
 /**
  * @class ReelsIds

@@ -5,11 +5,11 @@ scraper-x - Ziyan
 */
 
 
-const axios = require('axios');
-const { formatCookie } = require('../utils');
-const { config } = require('../config');
-const { csrfToken, IgCookie, LoginData } = require('../types');
-const { randomUUID } = require('crypto');
+const axios = require("axios");
+const { formatCookie } = require("../utils");
+const { config } = require("../config");
+const { csrfToken, IgCookie, LoginData } = require("../types");
+const { randomUUID } = require("crypto");
 
 /**
  * Get CSRF Token from Instagram login page

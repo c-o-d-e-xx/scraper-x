@@ -5,10 +5,10 @@ scraper-x - Ziyan
 */
 
 
-const { Readable } = require('stream');
-const { formattedShortcode, IGPostType, postType, ProductType } = require('../types/index');
-const bigInt = require('big-integer');
-const { createHmac } = require('crypto');
+const { Readable } = require("stream");
+const { formattedShortcode, IGPostType, postType, ProductType } = require("../types/index");
+const bigInt = require("big-integer");
+const { createHmac } = require("crypto");
 
 const lower = 'abcdefghijklmnopqrstuvwxyz';
 const upper = lower.toUpperCase();

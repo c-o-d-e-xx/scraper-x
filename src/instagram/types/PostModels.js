@@ -5,7 +5,7 @@ scraper-x - Ziyan
 */
 
 
-const { Dimensions, postType, SharingFrictionInfo } = require('.');
+const { Dimensions, postType, SharingFrictionInfo } = require(".");
 
 class IPostModel {
     constructor({

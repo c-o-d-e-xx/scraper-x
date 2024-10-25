@@ -6,7 +6,7 @@ scraper-x - Ziyan
 
 
 // Import User from PostModels
-const { User } = require('./PostModels');
+const { User } = require("./PostModels");
 
 // Define the ISearchFollow class
 class SearchFollow {

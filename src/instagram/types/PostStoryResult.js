@@ -5,7 +5,7 @@ scraper-x - Ziyan
 */
 
 
-const { CommentInformTreatment, ImageVersions2, SharingFrictionInfo, User } = require('.');
+const { CommentInformTreatment, ImageVersions2, SharingFrictionInfo, User } = require(".");
 
 class PostStoryResult {
     constructor(media, status) {

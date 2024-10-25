@@ -5,7 +5,7 @@ scraper-x - Ziyan
 */
 
 
-const { PageInfo } = require('.');
+const { PageInfo } = require(".");
 
 class Graphql {
     constructor({ data, status } = {}) {

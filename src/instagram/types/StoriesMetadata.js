@@ -5,7 +5,7 @@ scraper-x - Ziyan
 */
 
 
-const { CommentInformTreatment, FriendshipStatus, ImageVersions2, Item, MediaType, MimeType, SharingFrictionInfo, User } = require('.');
+const { CommentInformTreatment, FriendshipStatus, ImageVersions2, Item, MediaType, MimeType, SharingFrictionInfo, User } = require(".");
 
 /**
  * Instagram Simplified Stories Metadata

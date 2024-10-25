@@ -6,7 +6,7 @@ scraper-x - Ziyan
 
 
 // Import necessary types from PostMetadata
-const { PageInfo, PurpleNode } = require('./PostMetadata');
+const { PageInfo, PurpleNode } = require("./PostMetadata");
 
 /**
  * Represents a paginated list of Instagram posts.

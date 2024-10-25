@@ -5,7 +5,7 @@ scraper-x - Ziyan
 */
 
 
-const { IMusic, IAuthor, IVideo } = require('./index'); // Adjust the path accordingly
+const { IMusic, IAuthor, IVideo } = require("./index"); // Adjust the path accordingly
 
 /**
  * Represents the result of the scraping process

@@ -6,7 +6,7 @@ scraper-x - Ziyan
 
 
 // Import the IgCookie interface or type from the respective file
-const { IgCookie } = require('./index');
+const { IgCookie } = require("./index");
 
 /**
  * @class LoginData

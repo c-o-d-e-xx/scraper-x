@@ -7,19 +7,19 @@ scraper-x - Ziyan
 
 // Export all modules
 module.exports = {
-    ...require('./HighlightMediaMetadata'),
-    ...require('./HighlightMetadata'),
-    ...require('./MediaConfigureOptions'),
-    ...require('./PostFeedResult'),
-    ...require('./PostMetadata'),
-    ...require('./PostModels'),
-    ...require('./PostStoryResult'),
-    ...require('./StoriesMetadata'),
-    ...require('./UserGraphQlV2'),
-    ...require('./UserMetadata'),
-    ...require('./PaginatedPosts'),
-    ...require('./LoginData'),
-    ...require('./searchFollow'),
+    ...require("./HighlightMediaMetadata"),
+    ...require("./HighlightMetadata"),
+    ...require("./MediaConfigureOptions"),
+    ...require("./PostFeedResult"),
+    ...require("./PostMetadata"),
+    ...require("./PostModels"),
+    ...require("./PostStoryResult"),
+    ...require("./StoriesMetadata"),
+    ...require("./UserGraphQlV2"),
+    ...require("./UserMetadata"),
+    ...require("./PaginatedPosts"),
+    ...require("./LoginData"),
+    ...require("./searchFollow"),
 };
 
 // Define types
