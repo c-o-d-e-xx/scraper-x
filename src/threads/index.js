@@ -77,6 +77,8 @@ class ThreadsAPIConfig {
   }
 }
 
+const config = new ThreadsAPIConfig();
+
 /**
  * Note: Type CAROUSEL is not available for single thread posts.
  */
