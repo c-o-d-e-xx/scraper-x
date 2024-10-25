@@ -49,11 +49,31 @@ const ContainerStatus = [
 const TimePeriod = ["day", "week", "days_28", "lifetime"];
 
 class ThreadsAPIConfig {
-  constructor(clientId, clientSecret, redirectUri, scope) {
+  /**
+   * @param {string} clientId - The client ID.
+   * @param {string} clientSecret - The client secret.
+   * @param {string} redirectUri - The redirect URI.
+   * @param {string[]} scope - The scopes of access granted by the access_token expressed as a list of comma-delimited or space-delimited, case-sensitive strings.
+   * 
+   * @throws Will throw an error if an invalid scope is provided.
+   */
+  constructor(clientId, clientSecret, redirectUri, scope = []) {
     this.clientId = clientId;
     this.clientSecret = clientSecret;
     this.redirectUri = redirectUri;
     this.scope = scope;
+
+    if (!this.validateScopes()) {
+      throw new Error("Invalid scope(s) provided.");
+    }
+  }
+
+  /**
+   * Validates if all provided scopes are in the allowed Scope list.
+   * @returns {boolean} - True if valid, otherwise false.
+   */
+  validateScopes() {
+    return this.scope.every(s => Scope.includes(s));
   }
 }
 
@@ -166,7 +186,7 @@ class TokenResponse {
 }
 
 class ThreadsAPI {
-  constructor(config) {
+  constructor(config: ThreadsAPIConfig) {
     this.config = config;
     this.accessToken = null;
     this.baseUrl = "https://graph.threads.net/v1.0/";
