@@ -3,6 +3,10 @@
   "version": "1.4.0",
   "description": "A Simple Scraper",
   "main": "src/index.js",
+  "engines": {
+    "node": "20.18.0",
+    "npm": "10.9.0"
+  },
   "scripts": {
     "start": "node src/index.js"
   },
