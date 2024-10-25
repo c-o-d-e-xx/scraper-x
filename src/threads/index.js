@@ -750,26 +750,7 @@ class ThreadsAPI {
 
 module.exports = {
   ThreadsAPI,
-  ThreadsAPIConfig,
-  ProfileFields,
-  RetrieveRepliesFields,
-  Scope,
-  ContainerStatus,
-  TimePeriod,
-  MediaType,
-  ReplyControl,
-  MetricName,
-  MediaMetric,
-  UserMetric,
-  ContainerStatusResponse,
-  ThreadsMediaInsightsResponse,
-  ThreadsUserInsightsResponse,
-  ThreadsUserInsightsParams,
-  TokenResponse,
-  MediaContainer,
-  MetricValue,
-  TimeSeriesValue,
-  TotalValue,
+  ThreadsAPIConfig
 };
 
       
