@@ -187,7 +187,7 @@ class TokenResponse {
 }
 
 class ThreadsAPI {
-  constructor(config: ThreadsAPIConfig) {
+  constructor(config) {
     this.config = config;
     this.accessToken = null;
     this.baseUrl = "https://graph.threads.net/v1.0/";
