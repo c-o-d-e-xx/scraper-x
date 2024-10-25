@@ -1,6 +1,6 @@
 {
   "name": "scraper-x",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A Simple Scraper",
   "main": "src/index.js",
   "engines": {
@@ -25,14 +25,14 @@
   ],
   "homepage": "https://github.com/c-o-d-e-xx/scraper-x#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12",
-    "miniget": "^4.2.2",
-    "netscape-cookies-parser": "^1.0.2",
-    "node-fetch": "^2.6.7",
-    "puppeteer": "^22.11.2",
-    "tiktok-signature": "^1.7.3",
-    "axios": "^0.27.2",
-    "big-integer": "^1.6.51",
-    "form-data": "^4.0.0"
+    "cheerio": "1.0.0",
+    "miniget": "4.2.3",
+    "netscape-cookies-parser": "1.0.2",
+    "node-fetch": "3.3.2",
+    "puppeteer": "23.6.0",
+    "tiktok-signature": "1.9.2",
+    "axios": "1.7.7",
+    "big-integer": "1.6.52",
+    "form-data": "4.0.1"
   }
 }
