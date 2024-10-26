@@ -44,9 +44,10 @@ function loadCookies(cookiesPath) {
 async function requestWebsite(baseUrl, fetchOptions) {
   const httpAgent = new http.Agent({ keepAlive: true, maxSockets: 20 });
   const httpsAgent = new https.Agent({ keepAlive: true, maxSockets: 20 });
-  
+
   const DefaultOptions = {
-    agent: (_parsedURL) => _parsedURL.protocol === "http:" ? httpAgent : httpsAgent,
+    httpAgent,
+    httpsAgent,
     headers: {
       "User-Agent": "Mozilla/5.0",
       Accept: "application/json, text/plain, */*",
@@ -55,11 +56,11 @@ async function requestWebsite(baseUrl, fetchOptions) {
       Connection: "keep-alive",
       Cookie: `${_cookies}`,
     },
+    ...fetchOptions,
   };
 
-  const req = await fetch(baseUrl, fetchOptions || DefaultOptions);
-  const res = await req.text();
-  return cheerio.load(res, { xmlMode: true });
+  const response = await axios.get(baseUrl, DefaultOptions);
+  return cheerio.load(response.data, { xmlMode: true });
 }
 
   /**
@@ -384,18 +385,17 @@ async function downloadAllVideosFromUser(username, options = { path: '', waterma
 
 async function noWaterMark(link) {
   const data = { url: link, count: "12", cursor: "0", web: "1", hd: "1" };
-  
-  const fetchNoWaterInfo = await fetch("https://www.tikwm.com/api/", {
-    method: "POST",
+
+  const response = await axios.post("https://www.tikwm.com/api/", new URLSearchParams(data), {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(data).toString(),
   });
 
-  const noWaterJson = await fetchNoWaterInfo.json();
+  const noWaterJson = response.data;
   if (noWaterJson.code === -1) throw new Error("API limit reached for no watermark");
 
   return "https://www.tikwm.com" + noWaterJson.data.hdplay;
 }
+
 
   /**
    * Scrapes hashtag posts
