@@ -9,6 +9,6 @@ module.exports = {
     IVideo: require("./IVideo"),
     IAuthor: require("./IAuthor"),
     IMusic: require("./IMusic"),
-    ITikTokResult: require("./TikTokResult"),
+    ITikTokResult: require("./ITikTokResult"),
     IUser: require("./IUser")
 };
