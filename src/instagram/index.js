@@ -222,7 +222,7 @@ class igApi {
         }
     }
 
-    async function fetchUser(username) {
+    async fetchUser(username) {
   const userID = await this.getIdByUsername(username);
   const res = await this.FetchIGAPI(
     config.instagram_api_v1,
