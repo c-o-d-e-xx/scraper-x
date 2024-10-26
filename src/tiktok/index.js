@@ -7,7 +7,6 @@ scraper-x - Ziyan
 
 const cheerio = require("cheerio");
 const miniget = require("miniget");
-const fetch = require("node-fetch"); 
 const { createWriteStream, existsSync, mkdirSync, unlinkSync } = require("fs");
 const puppeteer = require("puppeteer");
 const http = require("node:http");
