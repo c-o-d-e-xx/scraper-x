@@ -102,25 +102,68 @@ class igApi {
         return res?.data || res;
     }
 
-    _formatSidecar(data) {
-        const gql = data.items[0];
-        let urls = [];
-        if (gql.product_type === ProductType.CAROUSEL) {
-            gql.carousel_media.forEach((v) => {
-                urls.push({
-                    id: v.id,
-                    url: v.media_type === MediaType.IMAGE ? v.image_versions2.candidates[0].url : v.video_versions?.[0].url || '',
-                    type: v.media_type === MediaType.IMAGE ? 'image' : 'video',
-                    dimensions: {
-                        height: v.media_type === MediaType.IMAGE ? v.image_versions2.candidates[0].height : v.video_versions?.[0].height || 0,
-                        width: v.media_type === MediaType.IMAGE ? v.image_versions2.candidates[0].width : v.video_versions?.[0].width || 0
-                    }
-                });
-            });
+  _formatSidecar(data) {
+  const gql = data.items[0];
+  let urls = [];
+
+  if (gql.product_type === ProductType.CAROUSEL) {
+    gql.carousel_media.forEach((media) => {
+      urls.push({
+        id: media.id,
+        url: media.media_type === MediaType.IMAGE 
+          ? media.image_versions2.candidates[0].url 
+          : media.video_versions?.[0].url || '',
+        type: media.media_type === MediaType.IMAGE ? 'image' : 'video',
+        dimensions: {
+          height: media.media_type === MediaType.IMAGE 
+            ? media.image_versions2.candidates[0].height 
+            : media.video_versions?.[0].height || 0,
+          width: media.media_type === MediaType.IMAGE 
+            ? media.image_versions2.candidates[0].width 
+            : media.video_versions?.[0].width || 0
         }
-        // More post formatting logic for other types...
-        return urls;
-    }
+      });
+    });
+  } else if (gql.product_type === ProductType.REEL) {
+    urls.push({
+      id: gql.id,
+      url: gql.video_versions[0].url,
+      type: 'video',
+      dimensions: {
+        height: gql.video_versions[0].height,
+        width: gql.video_versions[0].width
+      }
+    });
+  } else if (gql.product_type === ProductType.TV) {
+    urls.push({
+      id: gql.id,
+      url: gql.video_versions[0].url,
+      type: 'video',
+      dimensions: {
+        height: gql.video_versions[0].height,
+        width: gql.video_versions[0].width
+      }
+    });
+  } else if (gql.product_type === ProductType.SINGLE) {
+    urls.push({
+      id: gql.id,
+      url: gql.media_type === MediaType.IMAGE 
+        ? gql.image_versions2.candidates[0].url 
+        : gql.video_versions?.[0].url || '',
+      type: gql.media_type === MediaType.IMAGE ? 'image' : 'video',
+      dimensions: {
+        height: gql.media_type === MediaType.IMAGE 
+          ? gql.image_versions2.candidates[0].height 
+          : gql.video_versions?.[0].height || 0,
+        width: gql.media_type === MediaType.IMAGE 
+          ? gql.image_versions2.candidates[0].width 
+          : gql.video_versions?.[0].width || 0
+      }
+    });
+  }
+
+  return urls;
+}
 
     async fetchPost(url) {
         const post = shortcodeFormatter(url);
