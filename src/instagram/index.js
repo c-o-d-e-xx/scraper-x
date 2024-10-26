@@ -179,27 +179,37 @@ class igApi {
         }
     }
 
-    async fetchUser(username) {
-        const userID = await this.getIdByUsername(username);
-        const res = await this.FetchIGAPI(
-            config.instagram_api_v1,
-            `/users/${userID}/info/`
-        );
-        const graphql = res?.data;
-        return {
-            id: graphql.user.pk,
-            username: graphql.user.username,
-            fullname: graphql.user.full_name,
-            followers: graphql.user.follower_count,
-            following: graphql.user.following_count,
-            post_count: graphql.user.media_count,
-            is_private: graphql.user.is_private,
-            is_verified: graphql.user.is_verified,
-            biography: graphql.user.biography,
-            external_url: graphql.user.external_url,
-            // Additional profile data...
-        };
-    }
+    async function fetchUser(username) {
+  const userID = await this.getIdByUsername(username);
+  const res = await this.FetchIGAPI(
+    config.instagram_api_v1,
+    `/users/${userID}/info/`
+  );
+  const graphql = res?.data;
+
+  return {
+    id: graphql.user.pk,
+    username: graphql.user.username,
+    fullname: graphql.user.full_name,
+    followers: graphql.user.follower_count,
+    following: graphql.user.following_count,
+    post_count: graphql.user.media_count,
+    is_private: graphql.user.is_private,
+    is_verified: graphql.user.is_verified,
+    biography: graphql.user.biography,
+    external_url: graphql.user.external_url,
+    total_igtv_videos: graphql.user.total_igtv_videos,
+    has_videos: graphql.user.has_videos,
+    hd_profile_pic_url_info: graphql.user.hd_profile_pic_url_info,
+    has_highlight_reels: graphql.user.has_highlight_reels,
+    has_guides: graphql.user.has_guides,
+    is_business: graphql.user.is_business,
+    contact_phone_number: graphql.user.contact_phone_number,
+    public_email: graphql.user.public_email,
+    account_type: graphql.user.account_type,
+    ...graphql
+  };
+}
 
     async fetchUserV2(username) {
         const res = await this.FetchIGAPI(
