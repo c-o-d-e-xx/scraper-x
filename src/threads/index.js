@@ -1,12 +1,8 @@
-/* Copyright (C) 2024 CODEX
-Licensed under the MIT License;
-you may not use this file except in compliance with the License.
-scraper-x - Ziyan
-*/
-
-
 const axios = require("axios");
 
+/**
+ * Fields when trying to get profile information about a Threads user.
+ */
 const ProfileFields = [
   "id",
   "username",
@@ -56,34 +52,13 @@ const ContainerStatus = [
 const TimePeriod = ["day", "week", "days_28", "lifetime"];
 
 class ThreadsAPIConfig {
-  /**
-   * @param {string} clientId - The client ID.
-   * @param {string} clientSecret - The client secret.
-   * @param {string} redirectUri - The redirect URI.
-   * @param {string[]} scope - The scopes of access granted by the access_token expressed as a list of comma-delimited or space-delimited, case-sensitive strings.
-   * 
-   * @throws Will throw an error if an invalid scope is provided.
-   */
-  constructor(clientId, clientSecret, redirectUri, scope = []) {
+  constructor(clientId, clientSecret, redirectUri, scope) {
     this.clientId = clientId;
     this.clientSecret = clientSecret;
     this.redirectUri = redirectUri;
     this.scope = scope;
-
-    if (!this.validateScopes()) {
-      throw new Error("Invalid scope(s) provided.");
-    }
-  }
-
-  /**
-   * Validates if all provided scopes are in the allowed Scope list.
-   * @returns {boolean} - True if valid, otherwise false.
-   */
-  validateScopes() {
-    return this.scope.every(s => Scope.includes(s));
   }
 }
-
 
 /**
  * Note: Type CAROUSEL is not available for single thread posts.
@@ -202,8 +177,8 @@ class ThreadsAPI {
 
   /**
    * Set the access token for the API
-   * @param accessToken The access token
-   * @returns void
+   * @param {string} accessToken The access token
+   * @returns {void}
    */
   setAccessToken(accessToken) {
     this.accessToken = accessToken;
@@ -229,8 +204,8 @@ class ThreadsAPI {
 
   /**
    * Generate the authorization URL for OAuth flow
-   * @param state Optional state parameter for OAuth
-   * @returns The authorization URL
+   * @param {string} [state] Optional state parameter for OAuth
+   * @returns {string} The authorization URL
    */
   getAuthorizationUrl(state) {
     const baseUrl = "https://threads.net/oauth/authorize";
@@ -247,8 +222,8 @@ class ThreadsAPI {
 
   /**
    * Exchange authorization code for a short-lived access token
-   * @param code The authorization code
-   * @returns Object containing short-lived access token and user ID
+   * @param {string} code The authorization code
+   * @returns {Promise<TokenResponse>} Object containing short-lived access token and user ID
    */
   async getAccessToken(code) {
     const url = `${this.baseUrl}oauth/access_token`;
@@ -275,8 +250,8 @@ class ThreadsAPI {
 
   /**
    * Exchange short-lived token for long-lived token
-   * @param shortLivedToken The short-lived access token
-   * @returns Object containing long-lived access token
+   * @param {string} shortLivedToken The short-lived access token
+   * @returns {Promise<TokenResponse>} Object containing long-lived access token
    */
   async getLongLivedToken(shortLivedToken) {
     const url = `${this.baseUrl}access_token`;
@@ -300,8 +275,8 @@ class ThreadsAPI {
 
   /**
    * Refresh long-lived token
-   * @param longLivedToken The long-lived access token to refresh
-   * @returns The new long-lived access token
+   * @param {string} longLivedToken The long-lived access token to refresh
+   * @returns {Promise<TokenResponse>} The new long-lived access token
    */
   async refreshLongLivedToken(longLivedToken) {
     const url = `${this.baseUrl}refresh_access_token`;
@@ -324,11 +299,11 @@ class ThreadsAPI {
 
   /**
    * Create a media container for a thread post
-   * @param userId The user ID
-   * @param mediaType The type of media
-   * @param mediaUrl Optional URL for image or video
-   * @param text Optional text content
-   * @returns The creation ID of the media container
+   * @param {string} userId The user ID
+   * @param {string} mediaType The type of media
+   * @param {string} [mediaUrl] Optional URL for image or video
+   * @param {string} [text] Optional text content
+   * @returns {Promise<string>} The creation ID of the media container
    */
   async createMediaContainer({ userId, mediaType, mediaUrl, text }) {
     const url = `${this.baseUrl}${userId}/threads`;
@@ -353,9 +328,9 @@ class ThreadsAPI {
 
   /**
    * Publish a media container
-   * @param userId The user ID
-   * @param creationId The creation ID of the media container
-   * @returns The ID of the published thread
+   * @param {string} userId The user ID
+   * @param {string} creationId The creation ID of the media container
+   * @returns {Promise<string>} The ID of the published thread
    */
   async publishMediaContainer({ userId, creationId }) {
     const url = `${this.baseUrl}${userId}/threads_publish`;
@@ -377,8 +352,8 @@ class ThreadsAPI {
 
   /**
    * Checks the status of a media container
-   * @param containerId The ID of the media container
-   * @returns The status of the media container
+   * @param {string} containerId The ID of the media container
+   * @returns {Promise<ContainerStatusResponse>} The status of the media container
    * @note Recommended querying a container's status once per minute, for no more than 5 minutes.
    */
   async getMediaContainerStatus(containerId) {
@@ -402,10 +377,10 @@ class ThreadsAPI {
 
   /**
    * Create a carousel item container
-   * @param userId The user ID
-   * @param mediaType The type of media (IMAGE or VIDEO)
-   * @param mediaUrl The URL of the media
-   * @returns The creation ID of the carousel item container
+   * @param {string} userId The user ID
+   * @param {string} mediaType The type of media (IMAGE or VIDEO)
+   * @param {string} mediaUrl The URL of the media
+   * @returns {Promise<string>} The creation ID of the carousel item container
    */
   async createCarouselItemContainer({ userId, mediaType, mediaUrl }) {
     const url = `${this.baseUrl}${userId}/threads`;
@@ -431,10 +406,10 @@ class ThreadsAPI {
 
   /**
    * Create a carousel container
-   * @param userId The user ID
-   * @param children Array of creation IDs for carousel items
-   * @param text Optional text content
-   * @returns The creation ID of the carousel container
+   * @param {string} userId The user ID
+   * @param {string[]} children Array of creation IDs for carousel items
+   * @param {string} [text] Optional text content
+   * @returns {Promise<string>} The creation ID of the carousel container
    */
   async createCarouselContainer({ userId, children, text }) {
     const url = `${this.baseUrl}${userId}/threads`;
@@ -458,10 +433,10 @@ class ThreadsAPI {
 
   /**
    * Retrieve user's threads
-   * @param userId The user ID
-   * @param fields Array of fields to retrieve
-   * @param options Optional parameters for pagination and date range
-   * @returns Array of user's threads
+   * @param {string} userId The user ID
+   * @param {string[]} fields Array of fields to retrieve
+   * @param {object} [options] Optional parameters for pagination and date range
+   * @returns {Promise<any[]>} Array of user's threads
    */
   async getUserThreads({ userId, fields, options }) {
     const url = `${this.baseUrl}${userId}/threads`;
@@ -486,9 +461,9 @@ class ThreadsAPI {
 
   /**
    * Retrieve a single threads media object
-   * @param mediaId The ID of the media object
-   * @param fields Array of fields to retrieve
-   * @returns The threads media object
+   * @param {string} mediaId The ID of the media object
+   * @param {string[]} fields Array of fields to retrieve
+   * @returns {Promise<any>} The threads media object
    */
   async getThreadsMediaObject({ mediaId, fields }) {
     const url = `${this.baseUrl}${mediaId}`;
@@ -505,9 +480,9 @@ class ThreadsAPI {
 
   /**
    * Retrieve a user's profile
-   * @param userId The user ID
-   * @param fields Array of fields to retrieve
-   * @returns The user's profile
+   * @param {string} userId The user ID
+   * @param {string[]} fields Array of fields to retrieve
+   * @returns {Promise<any>} The user's profile
    */
   async getUserProfile({ userId, fields }) {
     const url = `${this.baseUrl}${userId}`;
@@ -524,10 +499,10 @@ class ThreadsAPI {
 
   /**
    * Retrieve replies to a thread
-   * @param mediaId The ID of the thread
-   * @param fields Array of fields to retrieve
-   * @param reverse Whether to reverse the order of replies
-   * @returns Array of replies
+   * @param {string} mediaId The ID of the thread
+   * @param {string[]} fields Array of fields to retrieve
+   * @param {boolean} [reverse=true] Whether to reverse the order of replies
+   * @returns {Promise<any[]>} Array of replies
    */
   async getReplies({ mediaId, fields, reverse = true }) {
     const url = `${this.baseUrl}${mediaId}/replies`;
@@ -550,10 +525,10 @@ class ThreadsAPI {
 
   /**
    * Retrieve a conversation thread
-   * @param mediaId The ID of the thread
-   * @param fields Array of fields to retrieve
-   * @param reverse Whether to reverse the order of conversation
-   * @returns Array of conversation items
+   * @param {string} mediaId The ID of the thread
+   * @param {string[]} fields Array of fields to retrieve
+   * @param {boolean} [reverse=true] Whether to reverse the order of conversation
+   * @returns {Promise<any[]>} Array of conversation items
    */
   async getConversation({ mediaId, fields, reverse = true }) {
     const url = `${this.baseUrl}${mediaId}/conversation`;
@@ -576,9 +551,9 @@ class ThreadsAPI {
 
   /**
    * Hide or unhide a reply
-   * @param replyId The ID of the reply
-   * @param hide Whether to hide (true) or unhide (false) the reply
-   * @returns Whether the operation was successful
+   * @param {string} replyId The ID of the reply
+   * @param {boolean} hide Whether to hide (true) or unhide (false) the reply
+   * @returns {Promise<boolean>} Whether the operation was successful
    */
   async hideReply({ replyId, hide }) {
     const url = `${this.baseUrl}${replyId}/manage_reply`;
@@ -600,11 +575,11 @@ class ThreadsAPI {
 
   /**
    * Respond to a reply
-   * @param userId The user ID
-   * @param mediaType The type of media for the response
-   * @param text The text content of the response
-   * @param replyToId The ID of the thread to reply to
-   * @returns The ID of the created reply
+   * @param {string} userId The user ID
+   * @param {string} mediaType The type of media for the response
+   * @param {string} text The text content of the response
+   * @param {string} replyToId The ID of the thread to reply to
+   * @returns {Promise<string>} The ID of the created reply
    */
   async respondToReply({ userId, mediaType, text, replyToId }) {
     const url = `${this.baseUrl}${userId}/threads`;
@@ -628,11 +603,11 @@ class ThreadsAPI {
 
   /**
    * Control who can reply to a thread
-   * @param userId The user ID
-   * @param mediaType The type of media for the thread
-   * @param text The text content of the thread
-   * @param replyControl The reply control setting
-   * @returns The ID of the created thread
+   * @param {string} userId The user ID
+   * @param {string} mediaType The type of media for the thread
+   * @param {string} text The text content of the thread
+   * @param {string} replyControl The reply control setting
+   * @returns {Promise<string>} The ID of the created thread
    */
   async controlWhoCanReply({ userId, mediaType, text, replyControl }) {
     const url = `${this.baseUrl}${userId}/threads`;
@@ -656,9 +631,9 @@ class ThreadsAPI {
 
   /**
    * Retrieve media insights
-   * @param mediaId The ID of the media
-   * @param metrics Array of metrics to retrieve
-   * @returns The media insights
+   * @param {string} mediaId The ID of the media
+   * @param {string[]} metrics Array of metrics to retrieve
+   * @returns {Promise<ThreadsMediaInsightsResponse>} The media insights
    */
   async getMediaInsights({ mediaId, metrics }) {
     const url = `${this.baseUrl}${mediaId}/insights`;
@@ -680,10 +655,10 @@ class ThreadsAPI {
 
   /**
    * Retrieve user insights
-   * @param userId The user ID
-   * @param metrics Array of metrics to retrieve
-   * @param options Optional parameters for date range
-   * @returns The user insights
+   * @param {string} userId The user ID
+   * @param {string|string[]} metric Array of metrics to retrieve
+   * @param {object} [options] Optional parameters for date range
+   * @returns {Promise<ThreadsUserInsightsResponse>} The user insights
    */
   async getUserInsights({ userId, metric, options }) {
     const url = `${this.baseUrl}${userId}/threads_insights`;
@@ -707,10 +682,10 @@ class ThreadsAPI {
 
   /**
    * Make a request to the Threads API
-   * @param url The API endpoint URL
-   * @param method The HTTP method
-   * @param params The request parameters
-   * @returns The response data
+   * @param {string} url The API endpoint URL
+   * @param {string} method The HTTP method
+   * @param {object} params The request parameters
+   * @returns {Promise<T>} The response data
    */
   async makeRequest({ url, method, params }) {
     const config = {
@@ -734,30 +709,17 @@ class ThreadsAPI {
 
   /**
    * Handle errors from API requests
-   * @param error The error object
-   * @returns The error message
+   * @param {Error} error The error object
+   * @returns {Error} The error message
    */
   handleError(error) {
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      console.error("Error response:", error.response.data);
-      console.error("Error status:", error.response.status);
-      console.error("Error headers:", error.response.headers);
-    } else if (error.request) {
-      // The request was made but no response was received
-      console.error("Error request:", error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.error("Error message:", error.message);
-    }
-    throw error;
+    throw new Error(error.message);
   }
 }
 
 module.exports = {
   ThreadsAPI,
-  ThreadsAPIConfig
+  ThreadsAPIConfig,
 };
 
       
