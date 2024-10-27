@@ -24,7 +24,5 @@ module.exports = {
   getMusic,
   downloadAllVideosFromUser,
   noWaterMark,
-  hashTag,
-  ThreadsAPI,
-  ThreadsAPIConfig
+  hashTag
 };
