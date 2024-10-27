@@ -16,8 +16,6 @@ const {
   hashTag 
 } = require("./tiktok")
 
-const { ThreadsAPI, ThreadsAPIConfig } = require("./threads");
-
 module.exports = {
   igApi,
   getVideo,
