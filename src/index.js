@@ -6,6 +6,8 @@ scraper-x - Ziyan
 
 const { igApi } = require("./instagram")
 
+const { ThreadsAPI } = require("./threads");
+
 const { 
   getVideo,
   getUser,
@@ -18,6 +20,7 @@ const {
 
 module.exports = {
   igApi,
+  ThreadsAPI,
   getVideo,
   getUser,
   getAllVideosFromUser,
