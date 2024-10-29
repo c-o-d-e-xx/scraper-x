@@ -4,7 +4,7 @@ you may not use this file except in compliance with the License.
 scraper-x - Ziyan
 */
 
-
+const axios = require("axios");
 const cheerio = require("cheerio");
 const miniget = require("miniget");
 const { createWriteStream, existsSync, mkdirSync, unlinkSync } = require("fs");
