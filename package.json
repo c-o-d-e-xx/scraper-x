@@ -4,8 +4,8 @@
   "description": "A Simple Scraper",
   "main": "src/index.js",
   "engines": {
-    "node": "20.18.0",
-    "npm": "10.9.0"
+    "node": "22.11.0",
+    "npm": "10.9.1"
   },
   "scripts": {
     "start": "node src/index.js"
