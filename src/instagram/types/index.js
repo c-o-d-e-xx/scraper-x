@@ -37,6 +37,11 @@ const {
     MediaLocation
 } = require("./MediaConfigureOptions");
 
+const {
+    IPaginatedPosts,
+    EdgeOwnerToTimelineMediaEdge
+} = require("./PaginatedPosts");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -64,5 +69,7 @@ module.exports = {
     Nametag,
     MediaConfigureOptions,
     PostingUsertags,
-    MediaLocation
+    MediaLocation,
+    IPaginatedPosts,
+    EdgeOwnerToTimelineMediaEdge
 };
