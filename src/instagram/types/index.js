@@ -159,6 +159,11 @@ const {
     ProfileContextLinksWithUserID
 } = require("./UserMetadata");
 
+const {
+    SearchFollow,
+    UserFollow
+} = require("./searchFollow");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -284,5 +289,7 @@ module.exports = {
     UserGraphQL,
     UserDetails,
     HDProfilePic,
-    ProfileContextLinksWithUserID
+    ProfileContextLinksWithUserID,
+    SearchFollow,
+    UserFollow
 };
