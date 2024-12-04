@@ -11,6 +11,18 @@ const {
     VideoResource
 } = require("./HighlightMediaMetadata");
 
+const {
+    ReelsIds,
+    HightlighGraphQL,
+    IHighlightData,
+    IHighlightUser,
+    Edge,
+    EdgeElement,
+    Node,
+    CoverMedia,
+    CoverMediaCroppedThumbnail
+} = require("./HighlightMetadata");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -21,5 +33,14 @@ module.exports = {
     HighlightItem,
     EdgeStoryMediaViewers,
     HighlightOwner,
-    VideoResource
+    VideoResource,
+    ReelsIds,
+    HightlighGraphQL,
+    IHighlightData,
+    IHighlightUser,
+    Edge,
+    EdgeElement,
+    Node,
+    CoverMedia,
+    CoverMediaCroppedThumbnail
 };
