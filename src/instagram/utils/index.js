@@ -6,7 +6,7 @@ scraper-x - Ziyan
 
 
 const { Readable } = require("stream");
-const { formattedShortcode, IGPostType, postType, ProductType } = require("../types");
+const { formattedShortcode, IGPostType, postType, ProductType } = require("../types/Configuration");
 const bigInt = require("big-integer");
 const { createHmac } = require("crypto");
 
