@@ -49,7 +49,7 @@ const {
     IPostOwnerUser
 } = require("./PostFeedResult");
 
-cons {
+const {
     IGPostMetadata,
     links,
     PostGraphQL,
