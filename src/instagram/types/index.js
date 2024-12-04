@@ -31,6 +31,12 @@ const {
     Nametag
 } = require("./LoginData");
 
+const {
+    MediaConfigureOptions,
+    PostingUsertags,
+    MediaLocation
+} = require("./MediaConfigureOptions");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -55,5 +61,8 @@ module.exports = {
     LoggedInUser,
     GrowthFrictionInfo,
     Interventions,
-    Nametag
+    Nametag,
+    MediaConfigureOptions,
+    PostingUsertags,
+    MediaLocation
 };
