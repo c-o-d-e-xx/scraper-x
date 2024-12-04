@@ -151,6 +151,14 @@ const {
     EdgeOwnerToTimelineMedia
 } = require("./UserGraphQlV2");
 
+const {
+    IGUserMetadata,
+    UserGraphQL,
+    UserDetails,
+    HDProfilePic,
+    ProfileContextLinksWithUserID
+} = require("./UserMetadata");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -271,5 +279,10 @@ module.exports = {
     EdgeMutualFollowedBy,
     EdgeUser,
     NodeUsername,
-    EdgeOwnerToTimelineMedia
+    EdgeOwnerToTimelineMedia,
+    IGUserMetadata,
+    UserGraphQL,
+    UserDetails,
+    HDProfilePic,
+    ProfileContextLinksWithUserID
 };
