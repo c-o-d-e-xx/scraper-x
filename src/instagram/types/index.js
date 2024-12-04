@@ -204,6 +204,12 @@ const MimeType = {
 
 // csrfToken (as a string type alias)
 const csrfToken = 'string';
+const username = 'string';
+const userId = 'string';
+const seachTerm = 'string';
+const password = 'string';
+const IgCookie = 'string';
+const url = 'string';
 
 // postType (as constants)
 const postType = {
@@ -368,6 +374,12 @@ module.exports = {
     IGPostType,
     MimeType,
     csrfToken,
+    username,
+    userId,
+    seachTerm,
+    password,
+    IgCookie,
+    url,
     postType,
     FormattedShortcode,
     IChangedProfilePicture
