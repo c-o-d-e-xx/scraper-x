@@ -23,6 +23,14 @@ const {
     CoverMediaCroppedThumbnail
 } = require("./HighlightMetadata");
 
+const { 
+    LoginData,
+    LoggedInUser,
+    GrowthFrictionInfo,
+    Interventions,
+    Nametag
+} = require("./LoginData");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -42,5 +50,10 @@ module.exports = {
     EdgeElement,
     Node,
     CoverMedia,
-    CoverMediaCroppedThumbnail
+    CoverMediaCroppedThumbnail,
+    LoginData,
+    LoggedInUser,
+    GrowthFrictionInfo,
+    Interventions,
+    Nametag
 };
