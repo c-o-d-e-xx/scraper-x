@@ -7,7 +7,7 @@ scraper-x - Ziyan
 
 const fs = require("fs");
 const path = require("path");
-const { IgCookie } = require("../types");
+const { IgCookie } = require("../types/Configuration");
 
 const DIR = path.join(__dirname, '../config/Cookies.txt');
 
