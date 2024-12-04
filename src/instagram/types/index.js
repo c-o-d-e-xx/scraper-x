@@ -9,7 +9,7 @@ const {
     EdgeStoryMediaViewers,
     HighlightOwner,
     VideoResource
-} = require("./");
+} = require("./HighlightMediaMetadata");
 
 module.exports = { 
     IHighlightsMetadata,
