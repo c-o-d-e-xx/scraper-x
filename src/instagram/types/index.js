@@ -138,6 +138,19 @@ const {
     StoriesGraphQL
 } = require("./StoriesMetadata");
 
+const {
+    Graphql,
+    Data,
+    UserGraphQlV2,
+    BioLink,
+    BiographyWithEntities,
+    EdgeFollow,
+    EdgeMutualFollowedBy,
+    EdgeUser,
+    NodeUsername,
+    EdgeOwnerToTimelineMedia
+} = require("./UserGraphQlV2");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -248,5 +261,15 @@ module.exports = {
     StoryMedia,
     IGStoriesMetadata,
     ItemStories,
-    StoriesGraphQL
+    StoriesGraphQL,
+    Graphql,
+    Data,
+    UserGraphQlV2,
+    BioLink,
+    BiographyWithEntities,
+    EdgeFollow,
+    EdgeMutualFollowedBy,
+    EdgeUser,
+    NodeUsername,
+    EdgeOwnerToTimelineMedia
 };
