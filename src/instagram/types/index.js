@@ -164,6 +164,29 @@ const {
     UserFollow
 } = require("./searchFollow");
 
+const MediaType = Object.freeze({
+    IMAGE: 1,
+    VIDEO: 2,
+    CAROUSEL: 8,
+});
+const ProductType = Object.freeze({
+    CAROUSEL: 'carousel_container',
+    REEL: 'clips',
+    TV: 'igtv',
+    SINGLE: 'feed',
+});
+const Typename = Object.freeze({
+    GraphImage: 'GraphImage',
+    GraphSidecar: 'GraphSidecar',
+    GraphVideo: 'GraphVideo',
+});
+const IGPostType = Object.freeze({
+    carousel_container: 'p',
+    clips: 'reel',
+    igtv: 'tv',
+    feed: 'p',
+});
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -291,5 +314,9 @@ module.exports = {
     HDProfilePic,
     ProfileContextLinksWithUserID,
     SearchFollow,
-    UserFollow
+    UserFollow,
+    MediaType,
+    ProductType,
+    Typename,
+    IGPostType
 };
