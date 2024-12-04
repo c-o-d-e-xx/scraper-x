@@ -5,7 +5,8 @@ scraper-x - Ziyan
 */
 
 
-const { MediaType, Typename, User } = require(".");
+const { MediaType, Typename } = require("./Configuration");
+const { User } = require("./PostModels");
 
 class IGPostMetadata {
     constructor({
