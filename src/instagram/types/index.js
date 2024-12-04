@@ -42,6 +42,13 @@ const {
     EdgeOwnerToTimelineMediaEdge
 } = require("./PaginatedPosts");
 
+const {
+    PostFeedResult,
+    Media,
+    FbUserTags,
+    IPostOwnerUser
+} = require("./PostFeedResult");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -71,5 +78,9 @@ module.exports = {
     PostingUsertags,
     MediaLocation,
     IPaginatedPosts,
-    EdgeOwnerToTimelineMediaEdge
+    EdgeOwnerToTimelineMediaEdge,
+    PostFeedResult,
+    Media,
+    FbUserTags,
+    IPostOwnerUser
 };
