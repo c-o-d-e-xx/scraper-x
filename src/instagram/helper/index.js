@@ -3,7 +3,7 @@ const {
   getCsrfToken, 
   getSessionId,
   getCookie
-} = require("./");
+} = require("./Session");
 
 module.exports = {
   CookieHandler,
