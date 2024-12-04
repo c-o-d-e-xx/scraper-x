@@ -4,83 +4,76 @@ you may not use this file except in compliance with the License.
 scraper-x - Ziyan
 */
 
+// Import the necessary interfaces
+const { Author, Video, Music } = require("./index");
+
 /**
- * Represents the result of a TikTok scraping process.
+ * Represents the result of the scraping process
  * @class
  */
 class TikTokResult {
   /**
-   * The author of the video.
-   * @type {object}
+   * @type {IAuthor}
    */
   author;
 
   /**
-   * The video details.
-   * @type {object}
+   * @type {IVideo}
    */
   video;
 
   /**
-   * The audio details.
-   * @type {object}
+   * @type {IMusic}
    */
   audio;
 
   /**
-   * Number of shares for this video.
    * @type {number}
    */
   shareCount;
 
   /**
-   * Number of likes for this video.
    * @type {number}
    */
   likesCount;
 
   /**
-   * Number of comments for this video.
    * @type {number}
    */
   commentCount;
 
   /**
-   * Number of times this video has been played.
    * @type {number}
    */
   playCount;
 
   /**
-   * The creation date of the video.
    * @type {string}
    */
   createdAt;
 
   /**
-   * The absolute link to the TikTok video.
    * @type {string}
    */
   tiktokLink;
 
   /**
-   * The thumbnail of the video.
    * @type {string}
    */
   thumbnail;
 
   /**
-   * Constructor for the TikTokResult class.
-   * @param {object} author - The author of the video.
-   * @param {object} video - The video details.
-   * @param {object} audio - The audio details.
-   * @param {number} shareCount - Number of shares for this video.
-   * @param {number} likesCount - Number of likes for this video.
-   * @param {number} commentCount - Number of comments for this video.
-   * @param {number} playCount - Number of times this video has been played.
-   * @param {string} createdAt - The creation date of the video.
-   * @param {string} tiktokLink - The absolute link to the TikTok video.
-   * @param {string} thumbnail - The thumbnail of the video.
+   * TikTokResult constructor
+   * @param {IAuthor} author The author of the video
+   * @param {IVideo} video The video details
+   * @param {IMusic} audio The audio details
+   * @param {number} shareCount The number of shares
+   * @param {number} likesCount The number of likes
+   * @param {number} commentCount The number of comments
+   * @param {number} playCount The number of plays
+   * @param {string} createdAt The creation date of the video
+   * @param {string} tiktokLink The link to the TikTok video
+   * @param {string} thumbnail The thumbnail of the video
    */
   constructor(
     author,
@@ -94,18 +87,18 @@ class TikTokResult {
     tiktokLink,
     thumbnail
   ) {
-    this.author = author;          // Represents the author of the video
-    this.video = video;            // Represents the video details
-    this.audio = audio;            // Represents the audio details
+    this.author = author;          // IAuthor
+    this.video = video;            // IVideo
+    this.audio = audio;            // IMusic
     this.shareCount = shareCount;  // Number of shares
     this.likesCount = likesCount;  // Number of likes
     this.commentCount = commentCount; // Number of comments
     this.playCount = playCount;    // Number of plays
-    this.createdAt = createdAt;    // Creation date of the video
+    this.createdAt = createdAt;    // Creation date
     this.tiktokLink = tiktokLink;  // TikTok video link
     this.thumbnail = thumbnail;    // Video thumbnail
   }
 }
 
-// Exporting the TikTokResult class
-module.exports = TikTokResult;
+// Export the TikTokResult class
+module.exports = { TikTokResult };
