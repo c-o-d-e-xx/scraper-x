@@ -4,8 +4,8 @@ you may not use this file except in compliance with the License.
 scraper-x - Ziyan
 */
 
-
-const { CommentInformTreatment, ImageVersions2, SharingFrictionInfo, User } = require(".");
+const { SharingFrictionInfo } = require("./PostMetadata");
+const { CommentInformTreatment, ImageVersions2, User } = require("./PostModels");
 
 class PostStoryResult {
     constructor(media, status) {
