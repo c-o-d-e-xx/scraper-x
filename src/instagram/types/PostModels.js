@@ -4,8 +4,8 @@ you may not use this file except in compliance with the License.
 scraper-x - Ziyan
 */
 
-
-const { Dimensions, postType, SharingFrictionInfo } = require(".");
+const { postType } = require("./Configuration");
+const { Dimensions, SharingFrictionInfo } = require("./PostMetadata");
 
 class IPostModel {
     constructor({
