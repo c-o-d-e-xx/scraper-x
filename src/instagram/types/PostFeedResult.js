@@ -6,8 +6,8 @@ scraper-x - Ziyan
 
 
 // Import necessary types from the current directory
-const { Candidate, CommentInformTreatment, ImageVersions2, MusicMetadata, SharingFrictionInfo } = require(".");
-
+const { Candidate, CommentInformTreatment, ImageVersions2, MusicMetadata, SharingFrictionInfo } = require("./PostModels");
+const { SharingFrictionInfo } = require("./PostMetadata");
 /**
  * Represents the result of a post feed.
  */
