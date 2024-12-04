@@ -14,7 +14,7 @@ const https = require("node:https");
 const { exit } = require("node:process");
 const { CookieJar } = require("netscape-cookies-parser");
 const { getUserVideos } = require("./User-Videos");
-const { Video, User, Music } = require("./Entities");
+const { Video, User, Music } = require("./types");
 
 const _cookiesJar = new CookieJar();
 let _cookies = "";
