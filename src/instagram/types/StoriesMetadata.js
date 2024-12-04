@@ -4,8 +4,9 @@ you may not use this file except in compliance with the License.
 scraper-x - Ziyan
 */
 
-
-const { CommentInformTreatment, FriendshipStatus, ImageVersions2, Item, MediaType, MimeType, SharingFrictionInfo, User } = require(".");
+const { MediaType, MimeType } = require("./Configuration");
+const { SharingFrictionInfo } = require("./PostMetadata");
+const { CommentInformTreatment, FriendshipStatus, ImageVersions2, Item, User } = require("./PostModels");
 
 /**
  * Instagram Simplified Stories Metadata
