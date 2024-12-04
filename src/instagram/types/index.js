@@ -132,6 +132,12 @@ const {
     StoryMedia
 } = require("./PostStoryResult");
 
+const {
+    IGStoriesMetadata,
+    ItemStories,
+    StoriesGraphQL
+} = require("./StoriesMetadata");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -239,5 +245,8 @@ module.exports = {
     CommentUser,
     ItemUser,
     PostStoryResult,
-    StoryMedia
+    StoryMedia,
+    IGStoriesMetadata,
+    ItemStories,
+    StoriesGraphQL
 };
