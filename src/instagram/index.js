@@ -7,7 +7,7 @@ scraper-x - Ziyan
 const fs = require("fs");
 const FormData = require("form-data");
 const axios = require("axios");
-const { bufferToStream, getPostType, parseCookie, randInt, shortcodeFormatter } = require("./utils/index");
+const { bufferToStream, getPostType, parseCookie, randInt, shortcodeFormatter } = require("./utils");
 const {
     username,
     userId,
@@ -19,20 +19,31 @@ const {
     IChangedProfilePicture,
     ISearchFollow,
     IGPostMetadata,
-    PostGraphQL
+    PostGraphQL,
+    IGUserMetadata,
+    UserGraphQL,
+    IGStoriesMetadata,
+    ItemStories,
+    StoriesGraphQL,
+    HightlighGraphQL,
+    ReelsIds,
+    HMedia, 
+    IHighlightsMetadata,
+    IReelsMetadata,
+    ReelsMediaData,
+    IPostModels,
+    IRawBody,
+    MediaUrls,
+    PostFeedResult,
+    PostStoryResult,
+    MediaConfigureOptions,
+    UserGraphQlV2,
+    Graphql,
+    IPaginatedPosts	
 } = require("./types");
-const { IGUserMetadata, UserGraphQL } = require("./types/UserMetadata");
-const { IGStoriesMetadata, ItemStories, StoriesGraphQL } = require("./types/StoriesMetadata");
-const { highlight_ids_query, highlight_media_query, post_shortcode_query } = require("./helper/query");
-const { HightlighGraphQL, ReelsIds } = require("./types/HighlightMetadata");
-const { HMedia, IHighlightsMetadata, IReelsMetadata, ReelsMediaData } = require("./types/HighlightMediaMetadata");
-const { IPostModels, IRawBody, MediaUrls } = require("./types/PostModels");
-const { getCsrfToken } = require("./helper/Session");
-const { PostFeedResult } = require("./types/PostFeedResult");
-const { PostStoryResult } = require("./types/PostStoryResult");
-const { MediaConfigureOptions } = require("./types/MediaConfigureOptions");
-const { UserGraphQlV2, Graphql } = require("./types/UserGraphQlV2");
-const { IPaginatedPosts } = require("./types/PaginatedPosts");
+
+const { highlight_ids_query, highlight_media_query, post_shortcode_query, getCsrfToken } = require("./helper");
+
 const { config } = require("./config");
 
 
