@@ -127,6 +127,11 @@ const {
     ItemUser
 } = require("./PostModels");
 
+const {
+    PostStoryResult,
+    StoryMedia
+} = require("./PostStoryResult");
+
 module.exports = { 
     IHighlightsMetadata,
     IReelsMetadata,
@@ -232,5 +237,7 @@ module.exports = {
     CommentInformTreatment,
     Comment,
     CommentUser,
-    ItemUser
+    ItemUser,
+    PostStoryResult,
+    StoryMedia
 };
