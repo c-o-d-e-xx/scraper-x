@@ -139,6 +139,24 @@ const {
 } = require("./StoriesMetadata");
 
 const {
+    MediaType,
+    ProductType,
+    Typename,
+    IGPostType,
+    MimeType,
+    csrfToken,
+    username,
+    userId,
+    seachTerm,
+    password,
+    IgCookie,
+    url,
+    postType,
+    FormattedShortcode,
+   IChangedProfilePicture
+} = require("./Configuration");
+
+const {
     Graphql,
     Data,
     UserGraphQlV2,
@@ -292,5 +310,20 @@ module.exports = {
     HDProfilePic,
     ProfileContextLinksWithUserID,
     SearchFollow,
-    UserFollow
+    UserFollow,
+    MediaType,
+    ProductType,
+    Typename,
+    IGPostType,
+    MimeType,
+    csrfToken,
+    username,
+    userId,
+    seachTerm,
+    password,
+    IgCookie,
+    url,
+    postType,
+    FormattedShortcode,
+    IChangedProfilePicture
 };
